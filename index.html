@@ -1,0 +1,164 @@
+>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Compliance Checker – Check Your Content Before Posting</title>
+    <meta name="description" content="Free tool to check if your Facebook posts violate Community Standards or Advertising Policies. Avoid post removals and strikes.">
+    <style>
+        :root {
+            --fb-blue: #1877F2;
+            --fb-bg: #F0F2F5;
+            --risk-low: #28a745;
+            --risk-med: #ffc107;
+            --risk-high: #dc3545;
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #1c1e21; background-color: var(--fb-bg); margin: 0; padding: 0; }
+        header { background: white; border-bottom: 1px solid #ddd; padding: 20px 0; text-align: center; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { color: var(--fb-blue); font-size: 24px; }
+        h2 { border-bottom: 2px solid var(--fb-bg); padding-bottom: 10px; margin-top: 30px; }
+        textarea { width: 100%; height: 150px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px; box-sizing: border-box; }
+        button { background: var(--fb-blue); color: white; border: none; padding: 12px 25px; font-size: 18px; border-radius: 6px; cursor: pointer; margin-top: 10px; width: 100%; font-weight: bold; }
+        button:hover { background: #166fe5; }
+        #results { margin-top: 20px; display: none; padding: 20px; border-radius: 8px; border-left: 5px solid #ddd; }
+        .risk-badge { display: inline-block; padding: 5px 15px; border-radius: 20px; color: white; font-weight: bold; margin-bottom: 10px; }
+        .internal-links { background: #e7f3ff; padding: 15px; border-radius: 8px; margin-top: 40px; }
+        .internal-links a { color: var(--fb-blue); text-decoration: none; display: block; margin: 5px 0; font-weight: 500; }
+        .internal-links a:hover { text-decoration: underline; }
+        .adsense-placeholder { background: #eee; height: 90px; display: flex; align-items: center; justify-content: center; margin: 20px 0; border: 1px dashed #bbb; color: #888; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Facebook Compliance Checker – Check Your Content Before Posting</h1>
+</header>
+
+<div class="container">
+    <!-- INTRO COPY -->
+    <p>Facebook removes millions of posts every day for violating Community Standards and Advertising Policies. Creators, business owners, and page admins often don’t know what rule they broke until reach drops or content is removed.</p>
+    
+    <p><strong>This Facebook Compliance Checker helps you:</strong></p>
+    <ul>
+        <li>Identify risky language before posting</li>
+        <li>Understand Facebook Community Standards</li>
+        <li>Reduce post removals, strikes, and monetization issues</li>
+    </ul>
+    
+    <p>Paste your content below to check compliance before you publish.</p>
+
+    <div class="adsense-placeholder">Google AdSense - Top of Page</div>
+
+    <!-- TOOL SECTION -->
+    <textarea id="userInput" placeholder="Paste your post text here..."></textarea>
+    <button onclick="checkCompliance()">Check Compliance</button>
+
+    <div id="results">
+        <div id="riskLevel" class="risk-badge"></div>
+        <div id="explanation"></div>
+        <p><strong>Suggested fix:</strong> <span id="suggestedFix"></span></p>
+    </div>
+
+    <!-- SEO CONTENT SECTIONS -->
+    <h2>Common Facebook Community Standards Violations</h2>
+    <p>Understanding these categories helps you navigate Facebook’s automated moderation filters:</p>
+    <ul>
+        <li><strong>Hate Speech:</strong> Attacking people based on protected characteristics (race, religion, etc.).</li>
+        <li><strong>Harassment & Bullying:</strong> Content that targets individuals to degrade or shame them.</li>
+        <li><strong>Violence & Threats:</strong> Language that incites violence or promotes illegal acts.</li>
+        <li><strong>Adult Content:</strong> Excessive sexual language or non-consensual imagery.</li>
+        <li><strong>Spam & Engagement Bait:</strong> Explicitly asking for likes, shares, or comments to "game" the algorithm.</li>
+        <li><strong>Misinformation:</strong> False claims, especially regarding health (COVID-19, vaccines) or elections.</li>
+    </ul>
+
+    <div class="adsense-placeholder">Google AdSense - Mid Page</div>
+
+    <h2>Why Facebook Removes Posts</h2>
+    <ul>
+        <li><strong>Automated Moderation:</strong> AI bots scan text for "trigger words" instantly.</li>
+        <li><strong>User Reports:</strong> If users flag your content, a human moderator may review it.</li>
+        <li><strong>Ad Policy Overlap:</strong> Organic posts that look like "unapproved ads" (e.g., weight loss claims) are often suppressed.</li>
+        <li><strong>Repeat Violations:</strong> Multiple strikes can lead to "Shadowbanning" or page deletion.</li>
+    </ul>
+
+    <h2>How to Avoid Facebook Post Removals</h2>
+    <ul>
+        <li><strong>Avoid absolute claims:</strong> Instead of "This WILL make you rich," use "How I improved my finances."</li>
+        <li><strong>Don’t target protected classes:</strong> Use inclusive, neutral language.</li>
+        <li><strong>Use neutral language:</strong> Avoid overly aggressive or sensationalist headlines.</li>
+        <li><strong>Add disclosures:</strong> If you are being paid to promote a product, always use the Paid Partnership tag.</li>
+    </ul>
+
+    <!-- INTERNAL LINKING -->
+    <div class="internal-links">
+        <strong>Resources:</strong>
+        <a href="/facebook-community-standards.html">Full Facebook Community Standards Guide</a>
+        <a href="/facebook-ad-policy-rules.html">Advertising Policy Breakdown</a>
+        <a href="/why-facebook-removed-my-post.html">Recovering a Removed Facebook Post</a>
+    </div>
+</div>
+
+<script>
+function checkCompliance() {
+    const text = document.getElementById('userInput').value.toLowerCase();
+    const resultsDiv = document.getElementById('results');
+    const riskLevel = document.getElementById('riskLevel');
+    const explanation = document.getElementById('explanation');
+    const suggestedFix = document.getElementById('suggestedFix');
+
+    // Rule-based logic
+    const rules = [
+        {
+            category: "Engagement Bait",
+            keywords: ["share if", "comment yes", "tag a friend", "copy and paste"],
+            explanation: "Facebook penalizes 'Engagement Bait'—posts that explicitly ask for likes/shares.",
+            fix: "Focus on starting a natural conversation without asking for specific actions."
+        },
+        {
+            category: "Medical/Misinformation",
+            keywords: ["miracle cure", "vaccine truth", "guaranteed weight loss", "cure for"],
+            explanation: "Sensitive health claims are heavily moderated and often flagged as misinformation.",
+            fix: "Use phrases like 'In my experience' and avoid making medical guarantees."
+        },
+        {
+            category: "Aggressive/Harassment",
+            keywords: ["stupid", "idiot", "hate", "kill", "attack", "ugly"],
+            explanation: "Your text contains language that could be flagged as bullying or harassment.",
+            fix: "Keep the tone professional and focus on ideas, not individuals."
+        }
+    ];
+
+    let foundRisks = [];
+
+    rules.forEach(rule => {
+        rule.keywords.forEach(keyword => {
+            if (text.includes(keyword)) {
+                foundRisks.push(rule);
+            }
+        });
+    });
+
+    resultsDiv.style.display = "block";
+
+    if (foundRisks.length > 0) {
+        riskLevel.innerText = "Risk Level: High / Medium";
+        riskLevel.style.backgroundColor = "var(--risk-high)";
+        explanation.innerHTML = foundRisks.map(r => `<p><strong>${r.category}:</strong> ${r.explanation}</p>`).join('');
+        suggestedFix.innerText = foundRisks[0].fix;
+    } else if (text.length < 10) {
+        riskLevel.innerText = "Please enter more text";
+        riskLevel.style.backgroundColor = "#888";
+        explanation.innerText = "Enter a full post description to see results.";
+        suggestedFix.innerText = "N/A";
+    } else {
+        riskLevel.innerText = "Risk Level: Low";
+        riskLevel.style.backgroundColor = "var(--risk-low)";
+        explanation.innerText = "No immediate policy triggers found. Your post looks safe, but always ensure you follow visual Community Standards as well.";
+        suggestedFix.innerText = "None needed. Ready to post!";
+    }
+}
+</script>
+
+</body>
+</html>
