@@ -1,22 +1,83 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Title Here - Compliance Hub</title>
+    <title>Account Recovery & Appeal Support - Social Compliance Hub</title>
     <style>
-        body { font-family: Segoe UI, sans-serif; background: #F0F2F5; padding: 40px; }
-        .content { max-width: 700px; margin: auto; background: white; padding: 40px; border-radius: 8px; }
-        nav { margin-bottom: 20px; }
-        a { color: #1877F2; text-decoration: none; font-weight: bold; }
+        :root { --primary: #1877F2; --gold: #D4AF37; --danger: #dc3545; }
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; background: #f4f7f6; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        h1 { color: var(--danger); text-align: center; }
+        .tier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
+        .tier-card { border: 2px solid #eee; border-radius: 10px; padding: 20px; text-align: center; transition: 0.3s; }
+        .tier-card.pro { border-color: var(--primary); transform: scale(1.05); background: #f0f7ff; }
+        .tier-card.vip { border-color: var(--gold); }
+        .price { font-size: 28px; font-weight: bold; margin: 10px 0; }
+        .btn { display: inline-block; padding: 12px 24px; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 15px; }
+        .btn-free { background: #6c757d; }
+        .btn-pro { background: var(--primary); }
+        .btn-vip { background: var(--gold); color: black; }
+        .urgency { background: #fff3cd; padding: 15px; border-radius: 5px; text-align: center; font-weight: bold; margin-bottom: 20px; }
     </style>
 </head>
 <body>
-    <div class="content">
-        <nav><a href="index.html">← Back to Hub</a></nav>
-        <h1>Page Header Here</h1>
-        <p>This guide is currently being updated with the latest 2025 Facebook policies.</p>
-        <p>In the meantime, you can use our <a href="facebook-compliance-checker.html">Compliance Checker Tool</a> to verify your posts.</p>
+
+<div class="container">
+    <div class="urgency">⚠️ NOTICE: Most Account Bans must be appealed within 30 days or the account is PERMANENTLY deleted.</div>
+    
+    <h1>Was Your Account Shut Down?</h1>
+    <p style="text-align:center;">Don't panic. 90% of account closures are automated AI errors. The secret is knowing which internal Meta/TikTok forms to use and what language to write in your appeal.</p>
+
+    <div class="tier-grid">
+        <!-- TIER 1 -->
+        <div class="tier-card">
+            <h3>Tier 1: Basic Support</h3>
+            <div class="price">FREE</div>
+            <p>Access to public appeal forms and general recovery documentation.</p>
+            <ul style="text-align:left; font-size:13px;">
+                <li>Standard Support Link</li>
+                <li>General Policy FAQ</li>
+            </ul>
+            <a href="#free-guide" class="btn btn-free">Get Free Guide</a>
+        </div>
+
+        <!-- TIER 2 -->
+        <div class="tier-card pro">
+            <div style="background:var(--primary); color:white; font-size:10px; padding:5px; border-radius:5px;">MOST POPULAR</div>
+            <h3>Tier 2: Appeal Kit</h3>
+            <div class="price">$19.99</div>
+            <p>Proven Copy/Paste appeal templates that bypass automated filters.</p>
+            <ul style="text-align:left; font-size:13px;">
+                <li>3 Copy/Paste Appeal Scripts</li>
+                <li>Hidden "Manual Review" Links</li>
+                <li>Shadowban Recovery Steps</li>
+            </ul>
+            <!-- Link this to a Gumroad or BuyMeACoffee page -->
+            <a href="https://gumroad.com" class="btn btn-pro">Download Kit Now</a>
+        </div>
+
+        <!-- TIER 3 -->
+        <div class="tier-card vip">
+            <h3>Tier 3: VIP Priority</h3>
+            <div class="price">$99.00</div>
+            <p>Professional review of your case and custom legal-format appeal draft.</p>
+            <ul style="text-align:left; font-size:13px;">
+                <li>Custom Written Appeal</li>
+                <li>Legal Policy Citations</li>
+                <li>Priority Support Channel</li>
+            </ul>
+            <a href="mailto:your-email@example.com" class="btn btn-vip">Contact Specialist</a>
+        </div>
     </div>
+
+    <div id="free-guide" style="margin-top:50px; border-top:1px solid #eee; padding-top:20px;">
+        <h2>Free Recovery Steps (Tier 1)</h2>
+        <p>1. Check your Support Inbox to see exactly which policy was cited.</p>
+        <p>2. Do NOT delete the post; this is admission of guilt.</p>
+        <p>3. Use the "Request Review" button within the notification immediately.</p>
+    </div>
+</div>
+
 </body>
 </html>
