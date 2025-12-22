@@ -1,6 +1,59 @@
 
-if(score >= 5) { 
-    riskLevel = "CRITICAL"; 
-    cssClass="high"; 
-    currentFix = "<strong>STOP: Do not post this.</strong> This content will likely trigger a 2026 Permanent Ban. If you have already been flagged, <a href='why-facebook-removed-my-post.html'>Download the 2026 Recovery Kit immediately</a>.";
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Compliance Checker – 2026 Strike-Shield</title>
+    <style>
+        :root { --fb-blue: #1877F2; --fb-bg: #F0F2F5; }
+        body { font-family: Segoe UI, Helvetica, Arial, sans-serif; line-height: 1.6; color: #1c1e21; background-color: var(--fb-bg); margin: 0; padding: 0; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
+        h1 { color: #1c1e21; font-size: 28px; margin-bottom: 20px; border-bottom: 3px solid var(--fb-blue); padding-bottom: 10px; }
+        .nav-link { text-decoration: none; color: var(--fb-blue); font-weight: bold; margin-bottom: 20px; display: inline-block; }
+        
+        /* Tool Styling */
+        .tool-box { background: #f9f9f9; padding: 25px; border-radius: 10px; border: 1px solid #ddd; margin: 25px 0; }
+        textarea { width: 100%; height: 150px; padding: 15px; border: 1px solid #ccd0d5; border-radius: 8px; font-size: 16px; box-sizing: border-box; resize: vertical; margin-bottom: 10px; }
+        button { background-color: var(--fb-blue); color: white; border: none; padding: 15px 30px; font-size: 18px; font-weight: bold; border-radius: 8px; cursor: pointer; width: 100%; transition: 0.2s; }
+        button:hover { background-color: #166fe5; }
+        
+        /* Results UI (2026 Strike-Shield) */
+        #result { margin-top: 25px; padding: 25px; border-radius: 8px; display: none; background: white; border: 1px solid #eee; }
+        .progress-container { width: 100%; height: 14px; background: #e9ecef; border-radius: 10px; overflow: hidden; margin: 15px 0; border: 1px solid #ddd; }
+        .progress-bar { height: 100%; width: 0%; transition: width 0.6s ease-in-out; }
+
+        /* SEO Sections */
+        h2 { color: #1c1e21; margin-top: 40px; font-size: 22px; }
+        p { font-size: 16px; color: #4b4f56; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="nav-link">← Back to 2026 Dashboard</a>
+    <h1>Facebook Compliance Checker – Check Your Content Before Posting</h1>
+
+    <p>Facebook removes millions of posts every day for violating Community Standards and Advertising Policies. Our 2026 Strike-Shield AI identifies risky language before you publish.</p>
+
+    <!-- 3️⃣ THE TOOL BOX -->
+    <div class="tool-box">
+        <textarea id="userText" placeholder="Paste your Facebook post or ad caption here..."></textarea>
+        <button onclick="checkCompliance()">Run 2026 Strike-Shield Scan</button>
+
+        <!-- THE RESULT AREA -->
+        <div id="result">
+            <div id="riskTitle" style="font-size:20px; font-weight:bold; margin-bottom:10px;"></div>
+            <div class="progress-container">
+                <div id="bar" class="progress-bar"></div>
+            </div>
+            <div id="expertAnalysis" style="background:#f8f9fa; padding:15px; border-radius:8px; border-left:5px solid #ccc;"></div>
+        </div>
+    </div>
+
+    <!-- 4️⃣ SEO CONTENT SECTIONS -->
+    <h2>Common Facebook Community Standards Violations</h2>
+    <ul>
+        <li><strong>Hate Speech:</strong> Direct attacks on protected groups.</li>
+        <li><strong>Spam & Engagement Bait:</strong> Asking for "Likes" or "Shares" triggers the 2026 algorithm.</li>
+        <li><stro
