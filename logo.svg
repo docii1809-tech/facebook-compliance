@@ -1,0 +1,15 @@
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Shield Shape -->
+  <path d="M250 40L420 100V250C420 360 350 440 250 470C150 440 80 360 80 250V100L250 40Z" fill="#0A0A0A" stroke="#8A2BE2" stroke-width="12"/>
+  
+  <!-- Outer Glow Ring -->
+  <path d="M250 60L390 115V250C390 340 330 410 250 440C170 410 110 340 110 250V115L250 60Z" stroke="#00FFFF" stroke-width="2" stroke-dasharray="10 5"/>
+  
+  <!-- The "S" Core -->
+  <path d="M200 180C200 160 220 150 250 150C280 150 300 165 300 185C300 210 280 220 250 230L220 240C190 250 170 270 170 305C170 340 200 360 250 360C300 360 330 340 330 310" stroke="#8A2BE2" stroke-width="25" stroke-linecap="round"/>
+  
+  <!-- Digital Accent Points -->
+  <circle cx="250" cy="40" r="8" fill="#00FFFF"/>
+  <circle cx="80" cy="100" r="5" fill="#8A2BE2"/>
+  <circle cx="420" cy="100" r="5" fill="#8A2BE2"/>
+</svg>
