@@ -1,37 +1,73 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>TikTok Compliance Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Compliance Checker – 2026 Strike-Shield</title>
     <style>
-        body { font-family: sans-serif; background: #010101; color: white; padding: 20px; }
-        .box { max-width: 600px; margin: auto; background: #121212; padding: 30px; border-radius: 10px; }
-        textarea { width: 100%; height: 100px; margin: 10px 0; background: #222; color: white; border: 1px solid #333; padding: 10px; box-sizing: border-box; }
-        button { background: #fe2c55; color: white; border: none; width: 100%; padding: 15px; cursor: pointer; font-weight: bold; }
-        #res { margin-top: 20px; display: none; padding: 15px; color: black; border-radius: 5px; }
+        :root { --tt-pink: #FE2C55; --tt-black: #010101; }
+        body { font-family: sans-serif; background-color: #f8f8f8; margin: 0; padding: 0; line-height: 1.6; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 40px; border-radius: 12px; border-top: 8px solid var(--tt-pink); box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
+        h1 { color: var(--tt-black); font-size: 28px; margin-bottom: 20px; text-align: center; }
+        .nav-link { text-decoration: none; color: var(--tt-pink); font-weight: bold; margin-bottom: 20px; display: inline-block; }
+        .tool-box { background: white; padding: 25px; border-radius: 10px; border: 2px solid #eee; margin: 25px 0; }
+        textarea { width: 100%; height: 150px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; box-sizing: border-box; resize: vertical; margin-bottom: 10px; }
+        button { background-color: var(--tt-black); color: white; border: none; padding: 15px 30px; font-size: 18px; font-weight: bold; border-radius: 8px; cursor: pointer; width: 100%; transition: 0.2s; }
+        button:hover { background-color: var(--tt-pink); }
+        #result { margin-top: 25px; padding: 25px; border-radius: 8px; display: none; background: white; border: 1px solid #eee; }
+        .progress-container { width: 100%; height: 14px; background: #e9ecef; border-radius: 10px; overflow: hidden; margin: 15px 0; border: 1px solid #ddd; }
+        .progress-bar { height: 100%; width: 0%; transition: width 0.6s ease-in-out; }
     </style>
 </head>
 <body>
-    <div class="box">
-        <a href="index.html" style="text-decoration:none; color:#666;">← Back</a>
-        <h2>TikTok Checker</h2>
-        <textarea id="inp" placeholder="Paste TikTok caption..."></textarea>
-        <button onclick="check()">Scan for Strikes</button>
-        <div id="res"></div>
+<div class="container">
+    <a href="index.html" class="nav-link">← Back to 2026 Dashboard</a>
+    <h1>TikTok Compliance Checker</h1>
+    <p>TikTok is the strictest platform in 2026 regarding "Dangerous Acts" and "Minor Safety." Scan your video script or caption below.</p>
+    <div class="tool-box">
+        <textarea id="userText" placeholder="Paste your TikTok description or script text here..."></textarea>
+        <button onclick="checkCompliance()">Run 2026 TT Strike-Shield Scan</button>
+        <div id="result">
+            <div id="riskTitle" style="font-size:20px; font-weight:bold; margin-bottom:10px;"></div>
+            <div class="progress-container"><div id="bar" class="progress-bar"></div></div>
+            <div id="expertAnalysis" style="background:#f8f9fa; padding:15px; border-radius:8px; border-left:5px solid #ccc;"></div>
+        </div>
     </div>
-    <script>
-        function check() {
-            const t = document.getElementById('inp').value.toLowerCase();
-            const r = document.getElementById('res');
-            r.style.display = 'block';
-            if(t.includes('challenge') || t.includes('vape')) {
-                r.style.background = '#f8d7da';
-                r.innerHTML = '<strong>High Risk:</strong> Dangerous act or regulated good keyword found.';
-            } else {
-                r.style.background = '#d4edda';
-                r.innerHTML = '<strong>Low Risk:</strong> Content follows standard trends.';
-            }
-        }
-    </script>
+    <h2>High-Risk Categories for TikTok</h2>
+    <p><strong>Regulated Goods:</strong> Any mention of vaping, alcohol, or supplements can trigger a flag. <strong>Dangerous Acts:</strong> AI flags words like "Challenge," "Prank," or "Try this."</p>
+</div>
+<script>
+function checkCompliance() {
+    const text = document.getElementById('userText').value.toLowerCase();
+    const resultDiv = document.getElementById('result');
+    const bar = document.getElementById('bar');
+    const riskTitle = document.getElementById('riskTitle');
+    const expertAnalysis = document.getElementById('expertAnalysis');
+    if(!text) { alert("Please paste content."); return; }
+    let riskScore = 0; let detections = [];
+    const rules = [
+        { word: "vape", risk: 45, cat: "Regulated Goods" },
+        { word: "challenge", risk: 35, cat: "Dangerous Acts" },
+        { word: "prank", risk: 25, cat: "Harassment Policy" },
+        { word: "sugar", risk: 20, cat: "Sensitive Content" },
+        { word: "check bio", risk: 15, cat: "External Promotion" },
+        { word: "buy this", risk: 20, cat: "Unverified Sales" }
+    ];
+    rules.forEach(r => { if(text.includes(r.word)) { riskScore += r.risk; detections.push(r.cat); } });
+    if(riskScore > 100) riskScore = 100;
+    resultDiv.style.display = "block";
+    let color = "#28a745";
+    if(riskScore > 40) color = "#ffc107";
+    if(riskScore > 75) color = "#FE2C55";
+    riskTitle.innerHTML = `2026 TT RISK: ${riskScore}% ${riskScore > 75 ? '🛑 CRITICAL' : ''}`;
+    riskTitle.style.color = color;
+    bar.style.width = riskScore + "%";
+    bar.style.backgroundColor = color;
+    expertAnalysis.style.borderLeftColor = color;
+    expertAnalysis.innerHTML = `<p><strong>Detections:</strong> ${detections.length > 0 ? [...new Set(detections)].join(', ') : 'None'}</p>
+        <p><strong>Expert Analysis:</strong> ${riskScore > 50 ? 'Warning: This video may be flagged for removal. <br><a href="why-facebook-removed-my-post.html" style="color:'+color+'; font-weight:bold;">Recover Restricted TikTok Account →</a>' : 'Safe for TikTok FYP.'}</p>`;
+}
+</script>
 </body>
 </html>
