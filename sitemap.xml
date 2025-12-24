@@ -1,19 +1,32 @@
 
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core Hub -->
   <url><loc>https://strikeshieldpro.com/index.html</loc></url>
+
+  <!-- Premium AI Tools -->
+  <url><loc>https://strikeshieldpro.com/ai-appeal-generator.html</loc></url>
   <url><loc>https://strikeshieldpro.com/facebook-compliance-checker.html</loc></url>
   <url><loc>https://strikeshieldpro.com/instagram-compliance-checker.html</loc></url>
   <url><loc>https://strikeshieldpro.com/tiktok-compliance-checker.html</loc></url>
   <url><loc>https://strikeshieldpro.com/youtube-compliance-checker.html</loc></url>
+
+  <!-- 2026 Strategy Guides -->
   <url><loc>https://strikeshieldpro.com/shadowban-bible-2026.html</loc></url>
   <url><loc>https://strikeshieldpro.com/tiktok-algorithm-guide-2026.html</loc></url>
   <url><loc>https://strikeshieldpro.com/youtube-copyright-guide-2026.html</loc></url>
   <url><loc>https://strikeshieldpro.com/health-finance-compliance-2026.html</loc></url>
+  <url><loc>https://strikeshieldpro.com/ai-voice-compliance-2026.html</loc></url>
   <url><loc>https://strikeshieldpro.com/meta-support-hack-2026.html</loc></url>
   <url><loc>https://strikeshieldpro.com/dating-app-ban-recovery-2026.html</loc></url>
+
+  <!-- Monetization & Support -->
+  <url><loc>https://strikeshieldpro.com/why-facebook-removed-my-post.html</loc></url>
+  <url><loc>https://strikeshieldpro.com/contact.html</loc></url>
+  <url><loc>https://strikeshieldpro.com/about.html</loc></url>
+
+  <!-- Legal Compliance -->
   <url><loc>https://strikeshieldpro.com/privacy-policy.html</loc></url>
   <url><loc>https://strikeshieldpro.com/terms.html</loc></url>
-  <url><loc>https://strikeshieldpro.com/about.html</loc></url>
-  <url><loc>https://strikeshieldpro.com/contact.html</loc></url>
+  <url><loc>https://strikeshieldpro.com/disclaimer.html</loc></url>
 </urlset>
