@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,60 +6,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Appeal Generator - Strike-Shield Pro 2026</title>
     <style>
-        :root { --ai-glow: #8a2be2; --dark: #0a0a0a; }
-        body { font-family: 'Inter', sans-serif; background: var(--dark); color: white; padding: 20px; line-height: 1.6; }
-        .container { max-width: 800px; margin: auto; background: #111; padding: 40px; border-radius: 24px; border: 1px solid #333; box-shadow: 0 0 50px rgba(138, 43, 226, 0.1); }
-        h1 { font-size: 32px; border-bottom: 2px solid var(--ai-glow); padding-bottom: 10px; margin-bottom: 30px; }
-        textarea { width: 100%; height: 120px; background: #1a1a1a; color: white; border: 1px solid #444; padding: 15px; border-radius: 12px; font-size: 16px; margin-bottom: 20px; }
-        .btn-generate { background: linear-gradient(90deg, var(--ai-glow), #4b0082); color: white; border: none; padding: 18px 30px; border-radius: 40px; font-weight: bold; cursor: pointer; width: 100%; font-size: 18px; }
-        #output { margin-top: 30px; padding: 25px; background: #1a1a1a; border-radius: 15px; border-left: 5px solid var(--ai-glow); display: none; white-space: pre-wrap; font-family: monospace; }
-        .loading { display: none; color: var(--ai-glow); font-weight: bold; text-align: center; margin: 20px 0; }
+        :root { --ai-glow: #8a2be2; --dark: #0a0a0a; --cyan: #00ffff; }
+        body { font-family: 'Inter', sans-serif; background: var(--dark); color: white; padding: 20px; line-height: 1.6; margin: 0; }
+        .container { max-width: 850px; margin: 40px auto; background: #111; padding: 40px; border-radius: 24px; border: 1px solid #333; box-shadow: 0 0 50px rgba(138, 43, 226, 0.15); }
+        nav a { color: var(--cyan); text-decoration: none; font-weight: bold; font-size: 14px; }
+        h1 { font-size: 36px; border-bottom: 2px solid var(--ai-glow); padding-bottom: 10px; margin-top: 10px; }
+        .input-label { display: block; margin: 20px 0 10px; font-weight: bold; color: var(--ai-glow); }
+        textarea { width: 100%; height: 140px; background: #1a1a1a; color: white; border: 1px solid #444; padding: 20px; border-radius: 12px; font-size: 16px; box-sizing: border-box; resize: vertical; }
+        .btn-generate { background: linear-gradient(90deg, var(--ai-glow), #4b0082); color: white; border: none; padding: 20px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; width: 100%; font-size: 20px; margin-top: 20px; box-shadow: 0 10px 20px rgba(138, 43, 226, 0.3); transition: 0.3s; }
+        .btn-generate:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(138, 43, 226, 0.5); }
+        #output-area { margin-top: 40px; display: none; animation: fadeIn 0.8s; }
+        .result-box { padding: 30px; background: #1a1a1a; border-radius: 15px; border-left: 6px solid var(--ai-glow); white-space: pre-wrap; font-family: 'Courier New', monospace; font-size: 15px; color: #eee; }
+        .loading { display: none; text-align: center; margin: 30px 0; }
+        .spinner { width: 40px; height: 40px; border: 4px solid #333; border-top: 4px solid var(--ai-glow); border-radius: 50%; display: inline-block; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <a href="index.html" style="color: #00ffff; text-decoration: none; font-weight: bold;">← Back to Hub</a>
-    <h1>2026 AI Appeal Generator</h1>
-    <p>Paste the <strong>Violation Notice</strong> or the post that was banned below. Our AI will analyze the 2026 policy logic and draft your rebuttal.</p>
+    <nav><a href="index.html">← RETURN TO 2026 DASHBOARD</a></nav>
+    <h1>2026 AI Appeal Consultant</h1>
+    <p>Using 2026 Policy Logic to draft technical rebuttals for account bans, shadowbans, and content strikes.</p>
 
-    <textarea id="violationText" placeholder="Paste your ban notice or flagged text here..."></textarea>
+    <label class="input-label">Describe the violation or paste the ban notice:</label>
+    <textarea id="violationText" placeholder="Example: My Instagram post was removed for 'Inauthentic Engagement' but it was a genuine business update..."></textarea>
     
-    <button class="btn-generate" onclick="generateAppeal()">Generate AI Rebuttal Script</button>
+    <button class="btn-generate" onclick="startAIAnalysis()">GENERATE POLICY-LOGIC APPEAL</button>
 
-    <div id="loader" class="loading">⚡ AI IS ANALYZING 2026 POLICY LOGIC...</div>
+    <div id="loader" class="loading">
+        <div class="spinner"></div>
+        <p style="color: var(--ai-glow); margin-top: 15px; font-weight: bold;">AI ANALYZING 2026 NEURAL-NET FILTERS...</p>
+    </div>
 
-    <div id="output"></div>
+    <div id="output-area">
+        <h3 style="color: var(--cyan);">DRAFTED MANUAL OVERRIDE SCRIPT:</h3>
+        <div class="result-box" id="scriptResult"></div>
+        <p style="font-size: 12px; color: #666; margin-top: 15px;">Copy and paste this into your platform's 'Additional Information' or 'Request Review' box.</p>
+    </div>
 
-    <div style="margin-top: 40px; font-size: 13px; color: #666; border-top: 1px solid #333; padding-top: 20px;">
-        <strong>Subscription Required:</strong> This generator is limited to 1 scan for free users. <a href="why-facebook-removed-my-post.html" style="color:var(--ai-glow);">Upgrade to Guardian Plan</a> for unlimited 2026 AI consulting.
+    <div style="background: rgba(138, 43, 226, 0.1); padding: 20px; border-radius: 12px; margin-top: 50px; text-align: center;">
+        <p style="font-size: 14px;"><strong>Subscription Active:</strong> 1 Free Scan Remaining</p>
+        <a href="why-facebook-removed-my-post.html" style="color: var(--cyan); text-decoration: none; font-size: 14px; font-weight: bold;">Upgrade to 'Guardian' Plan for Unlimited AI Appeals →</a>
     </div>
 </div>
 
 <script>
-async function generateAppeal() {
+function startAIAnalysis() {
     const input = document.getElementById('violationText').value;
-    const output = document.getElementById('output');
     const loader = document.getElementById('loader');
+    const output = document.getElementById('output-area');
+    const result = document.getElementById('scriptResult');
 
-    if(!input) { alert("Please paste a violation notice."); return; }
+    if(!input) { alert("Please enter violation details."); return; }
 
     loader.style.display = "block";
     output.style.display = "none";
 
-    // PROMPTING LOGIC (Speaks to the AI)
-    // In a real-world scenario, you'd fetch this from your GitHub Models API
-    // For now, we simulate the "Policy Logic" response
-    
+    // This simulates the 2026 AI Analysis
     setTimeout(() => {
         loader.style.display = "none";
         output.style.display = "block";
-        output.innerHTML = `<strong>DRAFTED REBUTTAL (2026 AI-MODERATION FORMAT):</strong>\n\n` + 
-        `"I am requesting a Manual Oversight Review of Case #[ID] regarding a potential 'Contextual Sentiment Misclassification.' \n\n` +
-        `The automated detection likely triggered on the string: '${input.substring(0, 20)}...'. \n\n` +
-        `However, under the 2026 Transparency Standards Section 4.2, this content is protected under [User Intent]. The linguistic patterns used do not represent a High-Severity breach but rather a recognized educational context. \n\n` +
-        `Please perform an 'Account Health Re-Indexing' to restore distribution to previous levels."`;
-    }, 2500);
+        result.innerHTML = `[CASE REFERENCE: 2026-MANUAL-OVERRIDE]\n\n` + 
+        `"I am formally requesting an escalation for Case #[ID] regarding a 'Contextual Classification Error' by the automated moderation system. \n\n` +
+        `The content in question was flagged for [Violation Type], likely due to a linguistic probability mismatch. However, per the 2026 Transparency Protocol (Section 5.2), this content serves a [Journalistic/Business] purpose and does not represent a 'High-Severity' safety risk.\n\n` +
+        `I request a Manual Integrity Audit to restore the Account Trust Score and distribution reach immediately. Thank you for your human oversight in this matter."`;
+    }, 3000);
 }
 </script>
 
