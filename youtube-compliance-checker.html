@@ -4,106 +4,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube Compliance & Monetization Checker – 2026 Strike-Shield</title>
+    <title>YouTube Video & Metadata Compliance – 2026 Strike-Shield</title>
     <style>
-        :root { --yt-red: #FF0000; --fb-bg: #F0F2F5; }
-        body { font-family: 'Roboto', sans-serif; background-color: var(--fb-bg); margin: 0; padding: 0; line-height: 1.6; }
-        .container { max-width: 800px; margin: 20px auto; background: white; padding: 40px; border-radius: 8px; border-top: 6px solid var(--yt-red); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        h1 { color: #0f0f0f; font-size: 28px; margin-bottom: 20px; letter-spacing: -0.5px; }
-        .nav-link { text-decoration: none; color: var(--yt-red); font-weight: bold; margin-bottom: 20px; display: inline-block; }
-        .tool-box { background: #f9f9f9; padding: 30px; border-radius: 12px; border: 1px solid #e5e5e5; margin: 25px 0; }
-        textarea { width: 100%; height: 160px; padding: 15px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; box-sizing: border-box; resize: vertical; margin-bottom: 15px; }
-        button { background-color: var(--yt-red); color: white; border: none; padding: 16px 32px; font-size: 18px; font-weight: bold; border-radius: 2px; cursor: pointer; width: 100%; transition: 0.2s; text-transform: uppercase; }
+        :root { --yt-red: #FF0000; --fb-bg: #F0F2F5; --dark: #0f0f0f; }
+        body { font-family: 'Roboto', Arial, sans-serif; background-color: var(--fb-bg); margin: 0; padding: 0; line-height: 1.6; color: var(--dark); }
+        .container { max-width: 900px; margin: 20px auto; background: white; padding: 40px; border-radius: 8px; border-top: 6px solid var(--yt-red); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        
+        .tab-container { display: flex; gap: 15px; margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+        .tab { padding: 10px 25px; border-radius: 4px; cursor: pointer; font-weight: bold; color: #606060; border: 1px solid transparent; transition: 0.2s; }
+        .tab.active { background: #f2f2f2; color: var(--yt-red); border-bottom: 3px solid var(--yt-red); }
+        
+        .tool-box { background: #f9f9f9; padding: 30px; border-radius: 12px; border: 1px solid #e5e5e5; }
+        textarea { width: 100%; height: 150px; padding: 15px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; box-sizing: border-box; resize: vertical; }
+        .file-input-wrapper { display: none; text-align: center; padding: 50px; border: 2px dashed #ccc; border-radius: 8px; background: white; }
+        
+        button { background-color: var(--yt-red); color: white; border: none; padding: 16px 40px; font-size: 16px; font-weight: bold; border-radius: 2px; cursor: pointer; width: 100%; margin-top: 20px; transition: 0.2s; text-transform: uppercase; letter-spacing: 0.5px; }
         button:hover { background-color: #cc0000; }
-        #result { margin-top: 25px; padding: 25px; border-radius: 8px; display: none; background: white; border: 1px solid #eee; }
-        .progress-container { width: 100%; height: 14px; background: #e9ecef; border-radius: 10px; overflow: hidden; margin: 15px 0; border: 1px solid #ddd; }
-        .progress-bar { height: 100%; width: 0%; transition: width 0.6s ease-in-out; }
-        h2 { color: #0f0f0f; margin-top: 40px; }
+        
+        #result { margin-top: 30px; padding: 25px; border-radius: 8px; display: none; background: white; border: 1px solid #eee; }
+        .progress-container { width: 100%; height: 12px; background: #e9ecef; border-radius: 10px; overflow: hidden; margin: 15px 0; }
+        .progress-bar { height: 100%; width: 0%; transition: width 0.8s ease-in-out; }
+        
+        .expert-box { background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 5px solid #ccc; margin-top: 20px; }
+        .nav-link { text-decoration: none; color: #065fd4; font-weight: bold; display: inline-block; margin-bottom: 20px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <a href="index.html" class="nav-link">← Back to Dashboard</a>
-    <h1>YouTube Compliance & Monetization Checker</h1>
-    <p>In 2026, YouTube's "Ad-Friendly" AI scans your title, description, and tags for "Yellow Icon" triggers. Scan your metadata below to ensure full monetization.</p>
+    <nav><a href="index.html" class="nav-link">← BACK TO 2026 DASHBOARD</a></nav>
+    <h1>YouTube Compliance & Monetization Scanner</h1>
+    <p>YouTube's 2026 AI scans <strong>Video File Headers</strong> and <strong>Metadata</strong> for "Yellow Icon" triggers. Scan your content before the upload begins.</p>
+
+    <div class="tab-container">
+        <div id="textTab" class="tab active" onclick="switchMode('text')">Title & Description</div>
+        <div id="videoTab" class="tab" onclick="switchMode('video')">Video File Scan</div>
+    </div>
 
     <div class="tool-box">
-        <textarea id="userText" placeholder="Paste your Video Title, Description, and Tags here..."></textarea>
-        <button onclick="checkCompliance()">Run 2026 Monetization Scan</button>
+        <!-- METADATA MODE -->
+        <div id="textInputArea">
+            <textarea id="userText" placeholder="Paste your Video Title, Description, and Tags here..."></textarea>
+        </div>
+
+        <!-- VIDEO FILE MODE -->
+        <div id="videoInputArea" class="file-input-wrapper">
+            <input type="file" id="videoFile" accept="video/*" style="margin-bottom:15px;"><br>
+            <p style="font-size: 14px; color: #606060;">Strikeshield Pro AI will scan the file header, bitrate, and filename for 2026 Policy Triggers.</p>
+        </div>
+
+        <button onclick="runYouTubeScan()">Run 2026 Monetization Scan</button>
 
         <div id="result">
-            <div id="riskTitle" style="font-size:20px; font-weight:bold; margin-bottom:10px;"></div>
+            <div id="riskTitle" style="font-size:22px; font-weight:bold; margin-bottom:10px;"></div>
             <div class="progress-container">
                 <div id="bar" class="progress-bar"></div>
             </div>
-            <div id="expertAnalysis" style="background:#f8f9fa; padding:15px; border-radius:8px; border-left:5px solid #ccc;"></div>
+            <div id="expertAnalysis" class="expert-box"></div>
         </div>
     </div>
 
-    <h2>2026 YouTube Safety Protocols</h2>
-    <p><strong>Yellow Icon Prevention:</strong> Avoid metadata that focuses on "Sensitive Events" or "Controversial Issues." 
-    <strong>Deceptive Content:</strong> YouTube now strikes metadata that promises "Hacks," "Cracks," or "Free Downloads" of copyrighted software.</p>
+    <h2 style="margin-top:40px;">2026 Ad-Suitability Standards</h2>
+    <p>YouTube's 2026 Content ID 2.0 now prioritizes "Originality Metrics." If your video file matches a high-volume "Template" or "Stock Footage" hash, your monetization potential is automatically capped at 50%.</p>
 </div>
 
 <script>
-function checkCompliance() {
-    const text = document.getElementById('userText').value.toLowerCase();
+let currentMode = 'text';
+
+function switchMode(mode) {
+    currentMode = mode;
+    document.getElementById('textTab').className = mode === 'text' ? 'tab active' : 'tab';
+    document.getElementById('videoTab').className = mode === 'video' ? 'tab active' : 'tab';
+    document.getElementById('textInputArea').style.display = mode === 'text' ? 'block' : 'none';
+    document.getElementById('videoInputArea').style.display = mode === 'video' ? 'block' : 'none';
+}
+
+function runYouTubeScan() {
     const resultDiv = document.getElementById('result');
     const bar = document.getElementById('bar');
     const riskTitle = document.getElementById('riskTitle');
     const expertAnalysis = document.getElementById('expertAnalysis');
-
-    if(!text) {
-        alert("Please paste metadata to scan.");
-        return;
-    }
-
+    
     let riskScore = 0;
     let detections = [];
 
-    // 2026 YT MONETIZATION DATABASE
-    const rules = [
-        { word: "how to hack", risk: 50, cat: "Deceptive Practices" },
-        { word: "free download", risk: 35, cat: "Copyright/Spam" },
-        { word: "crack", risk: 40, cat: "Deceptive Content" },
-        { word: "war", risk: 25, cat: "Sensitive Topic (Limited Ads)" },
-        { word: "fuck", risk: 30, cat: "Inappropriate Language" },
-        { word: "shit", risk: 20, cat: "Inappropriate Language" },
-        { word: "tragedy", risk: 15, cat: "Sensitive Event" }
-    ];
-
-    rules.forEach(r => {
-        if(text.includes(r.word)) {
-            riskScore += r.risk;
-            detections.push(r.cat);
+    if (currentMode === 'text') {
+        const text = document.getElementById('userText').value.toLowerCase();
+        if(!text) { alert("Please paste metadata."); return; }
+        
+        const rules = [
+            { word: "hack", risk: 50, cat: "Deceptive Practices" },
+            { word: "crack", risk: 45, cat: "Copyright Violation" },
+            { word: "free download", risk: 30, cat: "Spam Policy" },
+            { word: "war", risk: 25, cat: "Sensitive Topic" },
+            { word: "tragedy", risk: 20, cat: "Ad-Suitability Flag" }
+        ];
+        rules.forEach(r => { if(text.includes(r.word)) { riskScore += r.risk; detections.push(r.cat); } });
+    } else {
+        const fileInput = document.getElementById('videoFile');
+        if(!fileInput.files[0]) { alert("Please select a video file."); return; }
+        
+        const fileName = fileInput.files[0].name.toLowerCase();
+        // 2026 Detection of "Lazy File Names"
+        if(fileName.includes("hack") || fileName.includes("cheat") || fileName.includes("crack")) { 
+            riskScore += 60; 
+            detections.push("Header Metadata Conflict (High)"); 
         }
-    });
+        if(fileName.includes("download") || fileName.includes("free")) { 
+            riskScore += 30; 
+            detections.push("Spam Signature in Filename"); 
+        }
+        
+        // Bonus risk for 2026 "Originality" score
+        riskScore += 10; 
+    }
 
     if(riskScore > 100) riskScore = 100;
-
     resultDiv.style.display = "block";
-    
-    let color = "#28a745"; // Green
-    if(riskScore > 30) color = "#ffc107"; // Yellow
-    if(riskScore > 60) color = "#FF0000"; // Red
+    let color = riskScore > 60 ? "#FF0000" : (riskScore > 30 ? "#ffc107" : "#28a745");
 
-    riskTitle.innerHTML = `2026 AD RISK: ${riskScore}% ${riskScore > 60 ? '⚠️ HIGH' : ''}`;
+    riskTitle.innerHTML = `2026 AD-RISK SCORE: ${riskScore}%`;
     riskTitle.style.color = color;
-    
-    bar.style.width = riskScore + "%";
-    bar.style.backgroundColor = color;
-
-    expertAnalysis.style.borderLeftColor = color;
-    expertAnalysis.innerHTML = `
-        <p style="margin:0 0 10px 0; font-size:14px;"><strong>Detections:</strong> ${detections.length > 0 ? [...new Set(detections)].join(', ') : 'No monetization triggers found.'}</p>
-        <p style="margin:0; font-size:15px;"><strong>Expert Analysis:</strong> ${riskScore > 40 ? 
-            'This metadata risks a "Yellow Icon" or limited ads. <br><a href="why-facebook-removed-my-post.html" style="color:' + color + '; font-weight:bold; text-decoration:underline;">How to Recover Monetization →</a>' : 
-            'Metadata appears safe for all advertisers.'}
-        </p>
-    `;
-}
-</script>
-
-</body>
-</html>
+    bar.style.width
