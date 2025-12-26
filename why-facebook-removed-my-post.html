@@ -1,74 +1,84 @@
 
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protection Plans - Strike-Shield Pro 2026</title>
+    <title>2026 Protection Plans | Strike-Shield Pro</title>
     <style>
-        :root { --primary: #000; --accent: #8a2be2; --gold: #D4AF37; }
-        body { font-family: 'Inter', sans-serif; background: #f9f9f9; padding: 20px; }
-        .pricing-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1100px; margin: 40px auto; }
-        .plan-card { background: white; padding: 40px; border-radius: 20px; text-align: center; border: 1px solid #eee; transition: 0.3s; }
-        .plan-card.pro { border: 3px solid var(--accent); transform: scale(1.05); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .price { font-size: 48px; font-weight: 900; margin: 20px 0; }
-        .price span { font-size: 16px; color: #777; }
-        .features { text-align: left; list-style: none; padding: 0; margin: 30px 0; }
-        .features li { margin-bottom: 12px; font-size: 14px; }
-        .features li::before { content: "🛡️"; margin-right: 10px; }
-        .btn-sub { display: block; background: var(--primary); color: white; padding: 15px; border-radius: 40px; text-decoration: none; font-weight: bold; }
-        .btn-sub.active { background: var(--accent); }
+        :root { --primary: #000; --accent: #8a2be2; --bg: #f8f8f8; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); margin: 0; padding: 20px; color: #333; }
+        .nav-link { text-decoration: none; color: var(--accent); font-weight: bold; display: inline-block; margin-bottom: 20px; }
+        
+        .pricing-header { text-align: center; padding: 40px 0; }
+        .pricing-header h1 { font-size: 36px; letter-spacing: -1px; margin-bottom: 10px; }
+
+        .pricing-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 900px; margin: 0 auto 50px; }
+        
+        .plan-card { background: white; padding: 40px; border-radius: 24px; text-align: center; border: 1px solid #eee; transition: 0.3s; flex: 1; min-width: 300px; max-width: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        .plan-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        
+        .plan-card.recommended { border: 3px solid var(--accent); position: relative; }
+        .promo-badge { background: var(--accent); color: white; padding: 5px 15px; border-radius: 20px; font-size: 11px; font-weight: bold; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); text-transform: uppercase; }
+
+        .price { font-size: 56px; font-weight: 900; margin: 20px 0; color: var(--primary); }
+        .price span { font-size: 18px; color: #777; font-weight: 400; }
+
+        .features { text-align: left; list-style: none; padding: 0; margin: 30px 0; min-height: 200px; }
+        .features li { margin-bottom: 15px; font-size: 15px; display: flex; align-items: center; }
+        .features li::before { content: "🛡️"; margin-right: 12px; font-size: 14px; }
+
+        .btn-sub { display: block; background: var(--primary); color: white; padding: 18px; border-radius: 40px; text-decoration: none; font-weight: bold; font-size: 16px; transition: 0.3s; }
+        .btn-sub:hover { background: var(--accent); box-shadow: 0 10px 20px rgba(138, 43, 226, 0.3); }
+        
+        footer { text-align: center; padding: 40px; color: #aaa; font-size: 13px; }
     </style>
-</head><div style="background: #000; color: #fff; padding: 15px; text-align: center; font-size: 14px;">
-    🛍️ Looking for the full 2026 Manual Library? 
-    <a href="shop.html" style="color: #00ffff; font-weight: bold; margin-left: 10px;">Visit the Strike-Shield Store →</a>
-</div>
+</head>
 <body>
-    <div style="text-align:center; padding: 40px 0;">
-        <a href="index.html" style="text-decoration:none; color:var(--accent); font-weight:bold;">← Back to Dashboard</a>
+
+    <div class="pricing-header">
+        <a href="index.html" class="nav-link">← Back to Dashboard</a>
         <h1>2026 Protection & Insurance</h1>
-        <p>In 2026, don't just recover. <strong>Stay Protected.</strong></p>
+        <p>Stay ahead of the AI moderation shift. <strong>Choose your shield.</strong></p>
     </div>
 
     <div class="pricing-container">
-        <!-- SENTINEL -->
+        <!-- SENTINEL (The Entry Level) -->
         <div class="plan-card">
-            <h3>SENTINEL</h3>
+            <h3 style="letter-spacing: 2px;">SENTINEL</h3>
             <div class="price">$19<span>/mo</span></div>
             <ul class="features">
-                <li>Monthly Algo-Change Briefing</li>
-                <li>Unlimited Premium Scans</li>
+                <li>Monthly Algorithm Briefing</li>
+                <li>Unlimited 2026 Premium Scans</li>
+                <li>AI Appeal Generator Access</li>
                 <li>1 Emergency Recovery Script</li>
             </ul>
-            <a href="YOUR_STRIPE_LINK_19" class="btn-sub">Protect My Account</a>
+            <!-- PASTE STRIPE LINK 1 HERE -->
+            <a href="https://buy.stripe.com/YOUR_LINK_1" class="btn-sub">Protect My Account</a>
         </div>
 
-        <!-- GUARDIAN -->
-        <div class="plan-card pro">
-            <div style="background:var(--accent); color:white; font-size:11px; padding:4px 12px; border-radius:20px; display:inline-block; margin-bottom:10px;">RECOMMENDED</div>
-            <h3>GUARDIAN</h3>
+        <!-- GUARDIAN (The Money Maker) -->
+        <div class="plan-card recommended">
+            <div class="promo-badge">Recommended</div>
+            <h3 style="letter-spacing: 2px;">GUARDIAN</h3>
             <div class="price">$49<span>/mo</span></div>
             <ul class="features">
                 <li>Everything in Sentinel</li>
-                <li>Monthly Health Score Audit</li>
+                <li><strong>Monthly Account Health Audit</strong></li>
                 <li>Shadowban Prevention Strategy</li>
-                <li>Free Tier 2 Recovery Kit</li>
+                <li>24/7 Priority Email Support</li>
+                <li>Free Tier 2 Recovery Kit ($29 value)</li>
             </ul>
-            <a href="YOUR_STRIPE_LINK_49" class="btn-sub active">Become Unstoppable</a>
-        </div>
-
-        <!-- FORTRESS -->
-        <div class="plan-card">
-            <h3>FORTRESS</h3>
-            <div class="price">$199<span>/mo</span></div>
-            <ul class="features">
-                <li>Full Agency Retention</li>
-                <li>24/7 Human Policy Hotline</li>
-                <li>Pre-Post Content Vetting</li>
-                <li>Full Recovery Management</li>
-            </ul>
-            <a href="YOUR_STRIPE_LINK_199" class="btn-sub">Secure My Business</a>
+            <!-- PASTE STRIPE LINK 2 HERE -->
+            <a href="https://buy.stripe.com/YOUR_LINK_2" class="btn-sub">Become Unstoppable</a>
         </div>
     </div>
+
+    <footer>
+        &copy; 2026 Strike-Shield Pro Compliance Suite.<br>
+        <a href="privacy-policy.html" style="color:#aaa; text-decoration:none;">Privacy Policy</a> | <a href="terms.html" style="color:#aaa; text-decoration:none;">Terms of Service</a>
+    </footer>
+
 </body>
-</html>
+</html>          
+
