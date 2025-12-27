@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +31,110 @@
         .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
         .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
         
-        .card { ba
+        .card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #eee; transition: 0.3s; position: relative; }
+        .card:hover { transform: translateY(-8px); border-color: var(--accent); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
         
+        /* Premium Card */
+        .card.premium { border: 2px solid var(--accent); background: rgba(138, 43, 226, 0.02); }
+        .card-badge { background: var(--accent); color: white; font-size: 10px; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-bottom: 12px; font-weight: bold; text-transform: uppercase; width: fit-content; }
 
+        .card h3 { margin: 0 0 10px; font-size: 20px; }
+        .card p { color: #666; font-size: 14px; line-height: 1.5; margin: 0; }
 
+        /* Footer */
+        footer { text-align: center; padding: 80px 20px; color: #aaa; font-size: 13px; line-height: 2; border-top: 1px solid #eee; background: white; }
+        footer a { color: #aaa; text-decoration: none; margin: 0 10px; }
+        footer a:hover { color: var(--accent); }
+    </style>
+</head>
+<body>
+
+<div class="nav">
+    <a href="index.html" class="logo">
+        <img src="logo.svg" alt="🛡️"> 
+        STRIKE-SHIELD <span style="color:var(--accent)">PRO</span>
+    </a>
+    <div class="badge">SYSTEMS ACTIVE</div>
+</div>
+
+<div class="hero">
+    <h1>2026 Compliance Dashboard</h1>
+    <p>Professional protection and manual override protocols for creators.</p>
+</div>
+
+<!-- SECTION 1: FREE EBOOK -->
+<div class="lead-magnet">
+    <div style="max-width: 800px; margin: auto;">
+        <h2 style="color: var(--cyan); margin:0;">🛡️ FREE COMMUNITY RESOURCE</h2>
+        <p style="color: #bbb; margin: 10px 0;">Download "The 2026 Creator Defense" Manual (PDF)</p>
+        <img src="cover5.png" alt="Free eBook Cover" class="ebook-img">
+        <br>
+        <a href="creator-defense-2026.pdf" class="btn-free" download>Download Free Manual →</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="dashboard-grid">
+        
+        <!-- Premium AI Consultant -->
+        <a href="ai-appeal-generator.html" class="card premium">
+            <span class="card-badge">AI Powered</span>
+            <h3>AI Appeal Consultant 🤖</h3>
+            <p>Use 2026 AI to fight AI. Automatically draft technical rebuttals for bans and strikes.</p>
+        </a>
+
+        <!-- Facebook -->
+        <a href="facebook-compliance-checker.html" class="card">
+            <h3>Facebook 🛡️</h3>
+            <p>Scan for 2026 Community Standards violations and Ad integrity flags.</p>
+        </a>
+
+        <!-- Instagram -->
+        <a href="instagram-compliance-checker.html" class="card">
+            <h3>Instagram 📸</h3>
+            <p>Avoid shadowbans and "Explore Page" restrictions before you post.</p>
+        </a>
+
+        <!-- TikTok -->
+        <a href="tiktok-compliance-checker.html" class="card">
+            <h3>TikTok 🎵</h3>
+            <p>Strike-prevention for regulated goods and dangerous acts detection.</p>
+        </a>
+
+        <!-- YouTube -->
+        <a href="youtube-compliance-checker.html" class="card">
+            <h3>YouTube 📺</h3>
+            <p>Monitor metadata for advertiser-friendly and copyright safety.</p>
+        </a>
+
+        <!-- Faceless YouTube -->
+        <a href="faceless-youtube-monetization-2026.html" class="card">
+            <h3>Faceless YouTube 💰</h3>
+            <p>Protect AI-voiced channels from 'Reused Content' flags.</p>
+        </a>
+
+        <!-- Shadowban Bible -->
+        <a href="shadowban-bible-2026.html" class="card">
+            <h3>Shadowban Bible 👻</h3>
+            <p>Reach stuck at 0? Learn to fix 2026 algorithmic suppression.</p>
+        </a>
+
+        <!-- Health/Wealth Guide -->
+        <a href="health-finance-compliance-2026.html" class="card">
+            <h3>Health & Wealth 📈</h3>
+            <p>2026 compliance for supplements, coaching, and financial claims.</p>
+        </a>
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 Strike-Shield Pro Compliance Suite.<br>
+    <a href="about.html">About</a> | 
+    <a href="contact.html">Contact</a> | 
+    <a href="privacy-policy.html">Privacy Policy</a> | 
+    <a href="terms.html">Terms</a> | 
+    <a href="disclaimer.html">Legal</a>
+</footer>
+
+</body>
+</html>
