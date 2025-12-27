@@ -1,69 +1,71 @@
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facebook Ad & Post Compliance – 2026 Strike-Shield</title>
+    <title>Facebook Ad & Post Scanner - Strike-Shield Pro</title>
     <style>
-        :root { --fb-blue: #1877F2; --fb-bg: #F0F2F5; --dark: #1c1e21; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--fb-bg); margin: 0; padding: 0; line-height: 1.6; color: var(--dark); }
-        .container { max-width: 900px; margin: 20px auto; background: white; padding: 40px; border-radius: 12px; border-top: 8px solid var(--fb-blue); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        
-        .tab-container { display: flex; gap: 10px; margin-bottom: 25px; }
-        .tab { padding: 12px 25px; border-radius: 30px; cursor: pointer; font-weight: bold; border: 1px solid #ddd; background: white; color: #666; transition: 0.3s; }
+        :root { --fb-blue: #1877F2; --bg: #f0f2f5; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .tab-container { display: flex; gap: 10px; margin-bottom: 20px; }
+        .tab { padding: 10px 20px; border-radius: 30px; border: 1px solid #ddd; cursor: pointer; font-weight: bold; background: white; }
         .tab.active { background: var(--fb-blue); color: white; border-color: var(--fb-blue); }
-        
-        .tool-box { background: #fafafa; padding: 30px; border-radius: 15px; border: 1px solid #eee; }
-        textarea { width: 100%; height: 150px; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; box-sizing: border-box; resize: vertical; }
-        .file-wrapper { display: none; text-align: center; padding: 50px; border: 2px dashed #ccc; border-radius: 12px; background: white; }
-        
-        button { background-color: var(--fb-blue); color: white; border: none; padding: 18px 45px; font-size: 18px; font-weight: bold; border-radius: 50px; cursor: pointer; width: 100%; margin-top: 20px; transition: 0.3s; }
-        button:hover { background-color: #166fe5; }
-        
-        #result { margin-top: 30px; padding: 25px; border-radius: 12px; display: none; background: white; border: 1px solid #eee; }
-        .progress-container { width: 100%; height: 14px; background: #e9ecef; border-radius: 10px; overflow: hidden; margin: 15px 0; }
-        .progress-bar { height: 100%; width: 0%; transition: width 0.8s ease-in-out; }
+        .tool-box { background: #fafafa; padding: 25px; border-radius: 12px; border: 1px solid #eee; }
+        textarea { width: 100%; height: 120px; padding: 15px; border-radius: 10px; border: 1px solid #ddd; font-size: 16px; box-sizing: border-box; }
+        .file-wrapper { display: none; text-align: center; padding: 40px; border: 2px dashed #ccc; border-radius: 12px; background: white; }
+        button { background: var(--fb-blue); color: white; border: none; padding: 18px 40px; font-size: 18px; font-weight: bold; border-radius: 50px; cursor: pointer; width: 100%; margin-top: 15px; }
+        #result { margin-top: 30px; display: none; padding: 20px; background: white; border-radius: 10px; border: 1px solid #eee; }
+        .bar-bg { width: 100%; height: 12px; background: #eee; border-radius: 10px; margin: 15px 0; overflow: hidden; }
+        .bar-fill { height: 100%; width: 0%; transition: 0.8s; }
     </style>
 </head>
 <body>
 <div class="container">
-    <a href="index.html" style="text-decoration:none; color:var(--fb-blue); font-weight:bold;">← BACK TO DASHBOARD</a>
-    <h1>Facebook Ad & Post Scanner</h1>
-    <p>Meta's 2026 AI scans **Creative Images** and **Ad Copy** for policy triggers. Scan your assets before submitting to avoid "Chain Disabling."</p>
-
+    <a href="index.html" style="text-decoration:none; color:var(--fb-blue); font-weight:bold;">← BACK</a>
+    <h1>Facebook Compliance Scanner</h1>
     <div class="tab-container">
-        <div id="textTab" class="tab active" onclick="switchMode('text')">Scan Ad Copy</div>
-        <div id="imageTab" class="tab" onclick="switchMode('image')">Scan Ad Creative (Image)</div>
+        <div id="tTab" class="tab active" onclick="setMode('text')">Text Scan</div>
+        <div id="vTab" class="tab" onclick="setMode('video')">Video/Image Scan</div>
     </div>
-
     <div class="tool-box">
-        <div id="textInputArea">
-            <textarea id="userText" placeholder="Paste your Facebook post or ad caption here..."></textarea>
-        </div>
-
-        <div id="imageInputArea" class="file-wrapper">
-            <input type="file" id="imageFile" accept="image/*" style="margin-bottom:15px;"><br>
-            <p removes millions of posts every day for violating Community Standards and Advertising Policies. Our 2026 Strike-Shield AI identifies risky language before you publish.</p>
-
-    <!-- 3️⃣ THE TOOL BOX -->
-    <div class="tool-box">
-        <textarea id="userText" placeholder="Paste your Facebook post or ad caption here..."></textarea>
-        <button onclick="checkCompliance()">Run 2026 Strike-Shield Scan</button>
-
-        <!-- THE RESULT AREA -->
+        <div id="textIn"><textarea id="userText" placeholder="Paste ad copy..."></textarea></div>
+        <div id="fileIn" class="file-wrapper"><input type="file" id="userFile"></div>
+        <button onclick="startFBScan()">Run 2026 Scan</button>
         <div id="result">
-            <div id="riskTitle" style="font-size:20px; font-weight:bold; margin-bottom:10px;"></div>
-            <div class="progress-container">
-                <div id="bar" class="progress-bar"></div>
-            </div>
-            <div id="expertAnalysis" style="background:#f8f9fa; padding:15px; border-radius:8px; border-left:5px solid #ccc;"></div>
+            <div id="rTitle" style="font-weight:bold; font-size:20px;"></div>
+            <div class="bar-bg"><div id="rBar" class="bar-fill"></div></div>
+            <div id="rDesc" style="background:#f9f9f9; padding:15px; border-left:4px solid #ccc;"></div>
         </div>
     </div>
+</div>
+<script>
+let mode = 'text';
+function setMode(m) {
+    mode = m;
+    document.getElementById('tTab').className = m === 'text' ? 'tab active' : 'tab';
+    document.getElementById('vTab').className = m === 'video' ? 'tab active' : 'tab';
+    document.getElementById('textIn').style.display = m === 'text' ? 'block' : 'none';
+    document.getElementById('fileIn').style.display = m === 'video' ? 'block' : 'none';
+}
+function startFBScan() {
+    let score = mode === 'text' ? (document.getElementById('userText').value.length > 0 ? 15 : 0) : (document.getElementById('userFile').files[0] ? 25 : 0);
+    if(score === 0) { alert("Please provide input"); return; }
+    
+    // Check for specific text triggers
+    if(mode === 'text') {
+        const t = document.getElementById('userText').value.toLowerCase();
+        if(t.includes("guaranteed") || t.includes("money")) score += 40;
+    }
 
-    <!-- 4️⃣ SEO CONTENT SECTIONS -->
-    <h2>Common Facebook Community Standards Violations</h2>
-    <ul>
-        <li><strong>Hate Speech:</strong> Direct attacks on protected groups.</li>
-        <li><strong>Spam & Engagement Bait:</strong> Asking for "Likes" or "Shares" triggers the 2026 algorithm.</li>
-        <li><stro
+    document.getElementById('result').style.display = 'block';
+    const color = score > 50 ? '#dc3545' : '#28a745';
+    document.getElementById('rTitle').innerText = "Risk Score: " + score + "%";
+    document.getElementById('rTitle').style.color = color;
+    document.getElementById('rBar').style.width = score + "%";
+    document.getElementById('rBar').style.backgroundColor = color;
+    document.getElementById('rDesc').innerHTML = score > 40 ? "High risk detected. <a href='shop.html'>Get Recovery Scripts</a>" : "Content looks safe.";
+}
+</script>
+</body>
+</html>
