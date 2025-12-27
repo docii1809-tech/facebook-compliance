@@ -1,71 +1,64 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facebook Ad & Post Scanner - Strike-Shield Pro</title>
+    <title>Facebook Scanner - Strike-Shield Pro</title>
     <style>
         :root { --fb-blue: #1877F2; --bg: #f0f2f5; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); padding: 20px; }
-        .container { max-width: 800px; margin: auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .tab-container { display: flex; gap: 10px; margin-bottom: 20px; }
-        .tab { padding: 10px 20px; border-radius: 30px; border: 1px solid #ddd; cursor: pointer; font-weight: bold; background: white; }
-        .tab.active { background: var(--fb-blue); color: white; border-color: var(--fb-blue); }
-        .tool-box { background: #fafafa; padding: 25px; border-radius: 12px; border: 1px solid #eee; }
-        textarea { width: 100%; height: 120px; padding: 15px; border-radius: 10px; border: 1px solid #ddd; font-size: 16px; box-sizing: border-box; }
-        .file-wrapper { display: none; text-align: center; padding: 40px; border: 2px dashed #ccc; border-radius: 12px; background: white; }
-        button { background: var(--fb-blue); color: white; border: none; padding: 18px 40px; font-size: 18px; font-weight: bold; border-radius: 50px; cursor: pointer; width: 100%; margin-top: 15px; }
-        #result { margin-top: 30px; display: none; padding: 20px; background: white; border-radius: 10px; border: 1px solid #eee; }
-        .bar-bg { width: 100%; height: 12px; background: #eee; border-radius: 10px; margin: 15px 0; overflow: hidden; }
-        .bar-fill { height: 100%; width: 0%; transition: 0.8s; }
+        body { font-family: sans-serif; background: var(--bg); padding: 20px; }
+        .box { max-width: 800px; margin: auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .tab-btn { padding: 10px 20px; border-radius: 20px; cursor: pointer; border: 1px solid #ddd; margin-right: 10px; font-weight: bold; }
+        .tab-btn.active { background: var(--fb-blue); color: white; border-color: var(--fb-blue); }
+        .tool { background: #fafafa; padding: 20px; border-radius: 10px; margin: 20px 0; border: 1px solid #eee; }
+        textarea { width: 100%; height: 120px; padding: 10px; border-radius: 8px; border: 1px solid #ddd; }
+        #fileArea { display: none; text-align: center; padding: 30px; border: 2px dashed #ccc; border-radius: 10px; }
+        .btn-run { background: var(--fb-blue); color: white; border: none; width: 100%; padding: 15px; border-radius: 40px; font-weight: bold; cursor: pointer; }
+        #result { display: none; margin-top: 20px; padding: 20px; border: 1px solid #eee; border-radius: 10px; }
     </style>
 </head>
 <body>
-<div class="container">
-    <a href="index.html" style="text-decoration:none; color:var(--fb-blue); font-weight:bold;">← BACK</a>
-    <h1>Facebook Compliance Scanner</h1>
-    <div class="tab-container">
-        <div id="tTab" class="tab active" onclick="setMode('text')">Text Scan</div>
-        <div id="vTab" class="tab" onclick="setMode('video')">Video/Image Scan</div>
-    </div>
-    <div class="tool-box">
-        <div id="textIn"><textarea id="userText" placeholder="Paste ad copy..."></textarea></div>
-        <div id="fileIn" class="file-wrapper"><input type="file" id="userFile"></div>
-        <button onclick="startFBScan()">Run 2026 Scan</button>
+    <div class="box">
+        <a href="index.html" style="text-decoration:none; color:var(--fb-blue);">← Back</a>
+        <h1>Facebook Scanner</h1>
+        <div>
+            <span id="tBtn" class="tab-btn active" onclick="setScanMode('text')">Text</span>
+            <span id="vBtn" class="tab-btn" onclick="setScanMode('video')">Video/Image</span>
+        </div>
+        <div class="tool">
+            <div id="textArea"><textarea id="userText" placeholder="Paste caption..."></textarea></div>
+            <div id="fileArea"><input type="file" id="userFile"></div>
+            <button class="btn-run" onclick="executeFBScan()">Start 2026 Scan</button>
+        </div>
         <div id="result">
-            <div id="rTitle" style="font-weight:bold; font-size:20px;"></div>
-            <div class="bar-bg"><div id="rBar" class="bar-fill"></div></div>
-            <div id="rDesc" style="background:#f9f9f9; padding:15px; border-left:4px solid #ccc;"></div>
+            <h3 id="resTitle"></h3>
+            <p id="resDesc"></p>
         </div>
     </div>
-</div>
-<script>
-let mode = 'text';
-function setMode(m) {
-    mode = m;
-    document.getElementById('tTab').className = m === 'text' ? 'tab active' : 'tab';
-    document.getElementById('vTab').className = m === 'video' ? 'tab active' : 'tab';
-    document.getElementById('textIn').style.display = m === 'text' ? 'block' : 'none';
-    document.getElementById('fileIn').style.display = m === 'video' ? 'block' : 'none';
-}
-function startFBScan() {
-    let score = mode === 'text' ? (document.getElementById('userText').value.length > 0 ? 15 : 0) : (document.getElementById('userFile').files[0] ? 25 : 0);
-    if(score === 0) { alert("Please provide input"); return; }
-    
-    // Check for specific text triggers
-    if(mode === 'text') {
-        const t = document.getElementById('userText').value.toLowerCase();
-        if(t.includes("guaranteed") || t.includes("money")) score += 40;
-    }
-
-    document.getElementById('result').style.display = 'block';
-    const color = score > 50 ? '#dc3545' : '#28a745';
-    document.getElementById('rTitle').innerText = "Risk Score: " + score + "%";
-    document.getElementById('rTitle').style.color = color;
-    document.getElementById('rBar').style.width = score + "%";
-    document.getElementById('rBar').style.backgroundColor = color;
-    document.getElementById('rDesc').innerHTML = score > 40 ? "High risk detected. <a href='shop.html'>Get Recovery Scripts</a>" : "Content looks safe.";
-}
-</script>
+    <script>
+        let scanMode = 'text';
+        function setScanMode(m) {
+            scanMode = m;
+            document.getElementById('tBtn').className = m === 'text' ? 'tab-btn active' : 'tab-btn';
+            document.getElementById('vBtn').className = m === 'video' ? 'tab-btn active' : 'tab-btn';
+            document.getElementById('textArea').style.display = m === 'text' ? 'block' : 'none';
+            document.getElementById('fileArea').style.display = m === 'video' ? 'block' : 'none';
+        }
+        function executeFBScan() {
+            const res = document.getElementById('result');
+            res.style.display = 'block';
+            let score = 15; // Base risk
+            if(scanMode === 'text') {
+                const t = document.getElementById('userText').value.toLowerCase();
+                if(t.includes("guaranteed") || t.includes("money")) score = 65;
+            } else {
+                if(document.getElementById('userFile').files[0]) score = 45;
+                else { alert("Select a file"); return; }
+            }
+            document.getElementById('resTitle').innerText = "Risk Score: " + score + "%";
+            document.getElementById('resTitle').style.color = score > 50 ? 'red' : 'green';
+            document.getElementById('resDesc').innerHTML = score > 50 ? "High risk detected. <a href='shop.html'>Get Recovery Kit</a>" : "Safe to post.";
+        }
+    </script>
 </body>
 </html>
