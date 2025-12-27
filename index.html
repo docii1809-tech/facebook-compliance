@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,23 +9,28 @@
     <style>
         :root { --primary: #000; --accent: #8a2be2; --bg: #f8f8f8; --success: #28a745; --cyan: #00ffff; }
         body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); margin: 0; padding: 0; color: #333; line-height: 1.6; }
+        
         .nav { background: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
         .logo { font-weight: 900; font-size: 20px; color: var(--primary); display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .logo img { height: 35px; }
         .badge { background: var(--success); color: white; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; }
+
         .hero { background: white; padding: 60px 5% 40px; text-align: center; }
         .hero h1 { font-size: 42px; margin: 0; letter-spacing: -1.5px; line-height: 1.1; }
+
         .lead-magnet { background: linear-gradient(145deg, #0a0a0a, #1a1a1a); color: white; padding: 60px 5%; text-align: center; border-bottom: 5px solid var(--accent); }
         .ebook-img { width: 160px; height: auto; border-radius: 8px; margin: 20px 0; box-shadow: 0 0 30px rgba(138, 43, 226, 0.4); }
         .btn-free { background: var(--accent); color: white; padding: 16px 40px; border-radius: 40px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
+
         .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
         .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        
         .card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #eee; transition: 0.3s; }
-        .card:hover { transform: translateY(-8px); border-color: var(--accent); }
+        .card:hover { transform: translateY(-8px); border-color: var(--accent); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        
         .card.premium { border: 2px solid var(--accent); background: rgba(138, 43, 226, 0.02); }
-        .card-badge { background: var(--accent); color: white; font-size: 10px; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-bottom: 12px; font-weight: bold; text-transform: uppercase; }
-        footer { text-align: center; padding: 80px 20px; color: #aaa; font-size: 13px; line-height: 2; border-top: 1px solid #eee; background: white; }
-        footer a { color: #aaa; text-decoration: none; margin: 0 10px; }
+        .card-badge { background: var(--accent); color: white; font-size: 10px; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-bottom: 12px; font-weight: bold; text-transform: uppercase; width: fit-content; }
+        
+        footer { text-align: center; padding: 80px 20px; color: #aaa; font-size: 13px; border-top: 1px solid #eee; background: white; }
     </style>
 </head>
 <body>
@@ -36,59 +42,75 @@
 
 <div class="hero">
     <h1>2026 Compliance Dashboard</h1>
-    <p>Professional protection and manual override protocols for creators.</p>
+    <p>Strike-prevention and account recovery protocols for creators.</p>
 </div>
 
 <div class="lead-magnet">
     <h2 style="color: var(--cyan); margin:0;">🛡️ FREE COMMUNITY RESOURCE</h2>
     <p style="color: #bbb; margin: 10px 0;">Download "The 2026 Creator Defense" Manual (PDF)</p>
-    <!-- FIX: Ensure you uploaded cover5.png to GitHub -->
-    <img src="cover5.png" alt="Free eBook" class="ebook-img">
+    <!-- We will use cover1.png temporarily if cover5 isn't ready -->
+    <img src="cover5.png" alt="Free eBook" class="ebook-img" onerror="this.src='cover1.png'">
     <br>
     <a href="creator-defense-2026.pdf" class="btn-free" download>Download Free Manual →</a>
 </div>
 
 <div class="container">
     <div class="dashboard-grid">
+        <!-- 1. AI Consultant -->
         <a href="ai-appeal-generator.html" class="card premium">
-            <span class="card-badge">AI Powered</span>
+            <span class="card-badge">Premium AI</span>
             <h3>AI Appeal Consultant 🤖</h3>
             <p>Draft technical rebuttals for bans and strikes using 2026 Policy Logic.</p>
         </a>
+
+        <!-- 2. Facebook -->
         <a href="facebook-compliance-checker.html" class="card">
             <h3>Facebook 🛡️</h3>
             <p>Scan for Community Standards violations and Ad integrity flags.</p>
         </a>
+
+        <!-- 3. Instagram -->
         <a href="instagram-compliance-checker.html" class="card">
             <h3>Instagram 📸</h3>
             <p>Avoid shadowbans and Explore Page restrictions.</p>
         </a>
+
+        <!-- 4. TikTok -->
         <a href="tiktok-compliance-checker.html" class="card">
             <h3>TikTok 🎵</h3>
             <p>Strike-prevention for regulated goods and dangerous acts.</p>
         </a>
+
+        <!-- 5. YouTube -->
         <a href="youtube-compliance-checker.html" class="card">
             <h3>YouTube 📺</h3>
             <p>Monitor metadata for advertiser-friendly and copyright safety.</p>
         </a>
+
+        <!-- 6. Faceless YouTube -->
         <a href="faceless-youtube-monetization-2026.html" class="card">
             <h3>Faceless YouTube 💰</h3>
             <p>Protect AI-voiced channels from 'Reused Content' flags.</p>
         </a>
+
+        <!-- 7. Shadowban Bible -->
         <a href="shadowban-bible-2026.html" class="card">
             <h3>Shadowban Bible 👻</h3>
             <p>Detect and fix 2026 algorithmic suppression.</p>
         </a>
+
+        <!-- 8. Health/Wealth Guide -->
         <a href="health-finance-compliance-2026.html" class="card">
             <h3>Health & Wealth 📈</h3>
-            <p>2026 compliance for supplements and financial claims.</p>
+            <p>2026 compliance for YMYL claims and financial ads.</p>
         </a>
     </div>
 </div>
 
 <footer>
     &copy; 2026 Strike-Shield Pro Compliance Suite.<br>
-    <a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="about.html" style="color:#aaa; text-decoration:none;">About</a> | <a href="contact.html" style="color:#aaa; text-decoration:none;">Contact</a> | <a href="privacy-policy.html" style="color:#aaa; text-decoration:none;">Privacy Policy</a>
 </footer>
+
 </body>
 </html>
