@@ -4,125 +4,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube Video & Metadata Compliance – 2026 Strike-Shield</title>
+    <title>YouTube Video & Metadata Scanner - Strike-Shield Pro</title>
     <style>
-        :root { --yt-red: #FF0000; --fb-bg: #F0F2F5; --dark: #0f0f0f; }
-        body { font-family: 'Roboto', Arial, sans-serif; background-color: var(--fb-bg); margin: 0; padding: 0; line-height: 1.6; color: var(--dark); }
-        .container { max-width: 900px; margin: 20px auto; background: white; padding: 40px; border-radius: 8px; border-top: 6px solid var(--yt-red); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        
-        .tab-container { display: flex; gap: 15px; margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
-        .tab { padding: 10px 25px; border-radius: 4px; cursor: pointer; font-weight: bold; color: #606060; border: 1px solid transparent; transition: 0.2s; }
-        .tab.active { background: #f2f2f2; color: var(--yt-red); border-bottom: 3px solid var(--yt-red); }
-        
-        .tool-box { background: #f9f9f9; padding: 30px; border-radius: 12px; border: 1px solid #e5e5e5; }
-        textarea { width: 100%; height: 150px; padding: 15px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; box-sizing: border-box; resize: vertical; }
-        .file-input-wrapper { display: none; text-align: center; padding: 50px; border: 2px dashed #ccc; border-radius: 8px; background: white; }
-        
-        button { background-color: var(--yt-red); color: white; border: none; padding: 16px 40px; font-size: 16px; font-weight: bold; border-radius: 2px; cursor: pointer; width: 100%; margin-top: 20px; transition: 0.2s; text-transform: uppercase; letter-spacing: 0.5px; }
-        button:hover { background-color: #cc0000; }
-        
-        #result { margin-top: 30px; padding: 25px; border-radius: 8px; display: none; background: white; border: 1px solid #eee; }
-        .progress-container { width: 100%; height: 12px; background: #e9ecef; border-radius: 10px; overflow: hidden; margin: 15px 0; }
-        .progress-bar { height: 100%; width: 0%; transition: width 0.8s ease-in-out; }
-        
-        .expert-box { background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 5px solid #ccc; margin-top: 20px; }
-        .nav-link { text-decoration: none; color: #065fd4; font-weight: bold; display: inline-block; margin-bottom: 20px; }
+        :root { --yt-red: #FF0000; --bg: #f9f9f9; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 40px; border-radius: 15px; border-top: 6px solid var(--yt-red); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .tab-btn { padding: 10px 20px; border-radius: 20px; cursor: pointer; border: 1px solid #ddd; margin-right: 10px; font-weight: bold; background: white; }
+        .tab-btn.active { background: var(--yt-red); color: white; border-color: var(--yt-red); }
+        .tool { background: #fafafa; padding: 25px; border-radius: 12px; margin: 20px 0; border: 1px solid #eee; }
+        textarea { width: 100%; height: 120px; padding: 15px; border-radius: 10px; border: 1px solid #ddd; font-size: 16px; box-sizing: border-box; }
+        #fileArea { display: none; text-align: center; padding: 40px; border: 2px dashed #ccc; border-radius: 12px; background: white; }
+        button { background: var(--yt-red); color: white; border: none; padding: 18px 40px; font-size: 18px; font-weight: bold; border-radius: 50px; cursor: pointer; width: 100%; margin-top: 15px; text-transform: uppercase; }
+        #result { display: none; margin-top: 30px; padding: 20px; background: white; border-radius: 10px; border: 1px solid #eee; }
+        .bar-bg { width: 100%; height: 12px; background: #eee; border-radius: 10px; margin: 15px 0; overflow: hidden; }
+        .bar-fill { height: 100%; width: 0%; transition: 0.8s; }
     </style>
 </head>
 <body>
-
 <div class="container">
-    <nav><a href="index.html" class="nav-link">← BACK TO 2026 DASHBOARD</a></nav>
-    <h1>YouTube Compliance & Monetization Scanner</h1>
-    <p>YouTube's 2026 AI scans <strong>Video File Headers</strong> and <strong>Metadata</strong> for "Yellow Icon" triggers. Scan your content before the upload begins.</p>
-
-    <div class="tab-container">
-        <div id="textTab" class="tab active" onclick="switchMode('text')">Title & Description</div>
-        <div id="videoTab" class="tab" onclick="switchMode('video')">Video File Scan</div>
+    <a href="index.html" style="text-decoration:none; color:var(--yt-red); font-weight:bold;">← BACK</a>
+    <h1>YouTube Monetization Scanner</h1>
+    <div>
+        <span id="tTab" class="tab-btn active" onclick="setMode('text')">Metadata Scan</span>
+        <span id="vTab" class="tab-btn" onclick="setMode('video')">Video/Thumbnail Scan</span>
     </div>
-
-    <div class="tool-box">
-        <!-- METADATA MODE -->
-        <div id="textInputArea">
-            <textarea id="userText" placeholder="Paste your Video Title, Description, and Tags here..."></textarea>
-        </div>
-
-        <!-- VIDEO FILE MODE -->
-        <div id="videoInputArea" class="file-input-wrapper">
-            <input type="file" id="videoFile" accept="video/*" style="margin-bottom:15px;"><br>
-            <p style="font-size: 14px; color: #606060;">Strikeshield Pro AI will scan the file header, bitrate, and filename for 2026 Policy Triggers.</p>
-        </div>
-
-        <button onclick="runYouTubeScan()">Run 2026 Monetization Scan</button>
-
+    <div class="tool">
+        <div id="textIn"><textarea id="userText" placeholder="Paste Video Title and Description..."></textarea></div>
+        <div id="fileIn" class="fileArea" style="display:none; text-align:center; padding:30px; border:2px dashed #ccc; border-radius:12px;"><input type="file" id="userFile"></div>
+        <button onclick="runYouTubeScan()">Start 2026 Audit</button>
         <div id="result">
-            <div id="riskTitle" style="font-size:22px; font-weight:bold; margin-bottom:10px;"></div>
-            <div class="progress-container">
-                <div id="bar" class="progress-bar"></div>
-            </div>
-            <div id="expertAnalysis" class="expert-box"></div>
+            <div id="rTitle" style="font-weight:bold; font-size:20px;"></div>
+            <div class="bar-bg"><div id="rBar" class="bar-fill"></div></div>
+            <div id="rDesc" style="background:#f9f9f9; padding:15px; border-left:4px solid #ccc;"></div>
         </div>
     </div>
-
-    <h2 style="margin-top:40px;">2026 Ad-Suitability Standards</h2>
-    <p>YouTube's 2026 Content ID 2.0 now prioritizes "Originality Metrics." If your video file matches a high-volume "Template" or "Stock Footage" hash, your monetization potential is automatically capped at 50%.</p>
 </div>
-
 <script>
-let currentMode = 'text';
-
-function switchMode(mode) {
-    currentMode = mode;
-    document.getElementById('textTab').className = mode === 'text' ? 'tab active' : 'tab';
-    document.getElementById('videoTab').className = mode === 'video' ? 'tab active' : 'tab';
-    document.getElementById('textInputArea').style.display = mode === 'text' ? 'block' : 'none';
-    document.getElementById('videoInputArea').style.display = mode === 'video' ? 'block' : 'none';
+let mode = 'text';
+function setMode(m) {
+    mode = m;
+    document.getElementById('tTab').className = m === 'text' ? 'tab-btn active' : 'tab-btn';
+    document.getElementById('vTab').className = m === 'video' ? 'tab-btn active' : 'tab-btn';
+    document.getElementById('textIn').style.display = m === 'text' ? 'block' : 'none';
+    document.getElementById('fileIn').style.display = m === 'video' ? 'block' : 'none';
 }
-
 function runYouTubeScan() {
-    const resultDiv = document.getElementById('result');
-    const bar = document.getElementById('bar');
-    const riskTitle = document.getElementById('riskTitle');
-    const expertAnalysis = document.getElementById('expertAnalysis');
-    
-    let riskScore = 0;
-    let detections = [];
-
-    if (currentMode === 'text') {
-        const text = document.getElementById('userText').value.toLowerCase();
-        if(!text) { alert("Please paste metadata."); return; }
-        
-        const rules = [
-            { word: "hack", risk: 50, cat: "Deceptive Practices" },
-            { word: "crack", risk: 45, cat: "Copyright Violation" },
-            { word: "free download", risk: 30, cat: "Spam Policy" },
-            { word: "war", risk: 25, cat: "Sensitive Topic" },
-            { word: "tragedy", risk: 20, cat: "Ad-Suitability Flag" }
-        ];
-        rules.forEach(r => { if(text.includes(r.word)) { riskScore += r.risk; detections.push(r.cat); } });
+    let score = 0;
+    if(mode === 'text') {
+        const t = document.getElementById('userText').value.toLowerCase();
+        if(!t) { alert("Paste some text first"); return; }
+        score = 15;
+        if(t.includes("hack") || t.includes("free download")) score += 45;
     } else {
-        const fileInput = document.getElementById('videoFile');
-        if(!fileInput.files[0]) { alert("Please select a video file."); return; }
-        
-        const fileName = fileInput.files[0].name.toLowerCase();
-        // 2026 Detection of "Lazy File Names"
-        if(fileName.includes("hack") || fileName.includes("cheat") || fileName.includes("crack")) { 
-            riskScore += 60; 
-            detections.push("Header Metadata Conflict (High)"); 
-        }
-        if(fileName.includes("download") || fileName.includes("free")) { 
-            riskScore += 30; 
-            detections.push("Spam Signature in Filename"); 
-        }
-        
-        // Bonus risk for 2026 "Originality" score
-        riskScore += 10; 
+        const file = document.getElementById('userFile').files[0];
+        if(!file) { alert("Select a file first"); return; }
+        score = 25;
+        if(file.name.toLowerCase().includes("crack") || file.name.toLowerCase().includes("cheat")) score += 40;
     }
-
-    if(riskScore > 100) riskScore = 100;
-    resultDiv.style.display = "block";
-    let color = riskScore > 60 ? "#FF0000" : (riskScore > 30 ? "#ffc107" : "#28a745");
-
-    riskTitle.innerHTML = `2026 AD-RISK SCORE: ${riskScore}%`;
-    riskTitle.style.color = color;
-    bar.style.width
+    document.getElementById('result').style.display = 'block';
+    const color = score > 50 ? '#FF0000' : '#28a745';
+    document.getElementById('rTitle').innerText = "Ad Risk Score: " + score + "%";
+    document.getElementById('rTitle').style.color = color;
+    document.getElementById('rBar').style.width = score + "%";
+    document.getElementById('rBar').style.backgroundColor = color;
+    document.getElementById('rDesc').innerHTML = score > 40 ? "High risk for Yellow Icon. <a href='shop.html'>View Defense Kit</a>" : "Looks safe for monetization.";
+}
+</script>
+</body>
+</html>
