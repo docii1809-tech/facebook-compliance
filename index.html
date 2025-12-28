@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,92 +13,43 @@
         /* Navigation */
         .nav { background: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
         .logo { font-weight: 900; font-size: 20px; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
-        .logo img { height: 30px; }
-        .badge { background: var(--success); color: white; padding: 4px 12px; border-radius: 20px; font-size: 1 see in your screenshot and uses `cover1.png` as a temporary placeholder for the book cover so it's not broken.
+        .badge { background: var(--success); color: white; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; text-transform: uppercase; }
 
-**ACTION:** Replace everything in `index.html` with this:
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="MSHYprZVMBAyzRxQvfP5phYPrsZw9DiVMQsD41XAAcE" />
-    <title>Strike-Shield Pro | 2026 Social Compliance Suite</title>
-    <style>
-        :root { --primary: #000; --accent: #8a2be2; --bg: #f8f8f8; --success: #28a745; --cyan: #00ffff; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); margin: 0; padding: 0; color: #333; line-height: 1.6; }
-        .nav { background: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
-        .logo { font-weight: 900; font-size: 20px; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
-        .badge { background: var(--success); color: white; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; }
-        .hero { background: white; padding: 60px 5% 40px; text-align: center; }
-        .hero h1 { font-size: 42px; margin: 0; letter-spacing: -1.5px; line-height: 1.1; }
-        .book-section { background: linear-gradient(145deg, #0a0a0a, #1a1a1a); color: white; padding: 60px 5%; text-align: center; border-bottom: 5px solid var(--accent); }
-        .ebook-img { width: 1px; font-weight: bold; }
-
-        /* Hero Header */
+        /* Hero Section */
         .hero { background: white; padding: 60px 5% 40px; text-align: center; }
         .hero h1 { font-size: 42px; margin: 0; letter-spacing: -1.5px; line-height: 1.1; color: var(--primary); }
+        .hero p { color: #666; font-size: 18px; margin-top: 10px; }
 
-        /* Standalone Book Section (Fixes the Overlap) */
+        /* The Mission Banner (Lead Magnet) - THE LOOK YOU LIKED */
         .lead-magnet { background: linear-gradient(145deg, #0a0a0a, #1a1a1a); color: white; padding: 60px 5%; text-align: center; border-bottom: 5px solid var(--accent); }
         .ebook-img { width: 160px; height: auto; border-radius: 8px; margin: 20px 0; box-shadow: 0 0 30px rgba(138, 43, 226, 0.4); }
         .btn-free { background: var(--accent); color: white; padding: 16px 40px; border-radius: 40px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
+        .btn-free:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(138, 43, 226, 0.6); }
 
         /* Dashboard Grid */
         .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         
         .card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #eee; transition: 0.3s; }
         .card:hover { transform: translateY(-8px); border-color: var(--accent); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
         
-        .card.premium { border: 2px solid var(--accent); background: rgba(138, 43, 226, 0.02); }
-        .card-badge { background: var(--accent); color: white; font-size: 10px; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-bottom: 12160px; height: auto; border-radius: 8px; margin: 20px 0; box-shadow: 0 0 30px rgba(138, 43, 226, 0.4); }
-        .btn-free { background: var(--accent); color: white; padding: 16px 40px; border-radius: 40px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
-        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-        .card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #eee; transition: 0.3s; }
-        .card:hover { transform: translateY(-8px); border-color: var(--accent); }
+        /* Premium Card Highlight */
         .card.premium { border: 2px solid var(--accent); background: rgba(138, 43, 226, 0.02); }
         .card-badge { background: var(--accent); color: white; font-size: 10px; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-bottom: 12px; font-weight: bold; text-transform: uppercase; width: fit-content; }
-        footer { text-align: center; padding: 80px 20px; color: #aaa; font-size: 13px; border-top: 1px solid #eee; background: white; }
-        footer a { color: #aaa; text-decoration: none; margin: 0 10px; }
-    </style>
-</head>
-<body>
-
-<div class="nav">
-    <a href="index.html" class="logo">STRIKE-SHIELD PRO</a>
-    <div class="badge">SYSTEMS ACTIVE</div>
-</div>
-
-<div class="hero">
-    <h1>2026 Compliance Dashboard</h1>
-    <p>Professional protection and manual override protocols for creators.</p>
-</div>
-
-<div class="book-section">
-    <h2 style="color: var(--cyan); margin:0;">🛡️ FREE COMMUNITY RESOURCE</h2>
-    <p style="color: #bbb; margin: 10px 0;">The 2026 Creator Defense Manual</p>
-    <!-- Temporarily using cover1.png because cover5 is missing in your screenshots -->
-    <img src="cover1.png" alt="Free eBookpx; font-weight: bold; text-transform: uppercase; width: fit-content; }
 
         .card h3 { margin: 0 0 10px; font-size: 20px; }
         .card p { color: #666; font-size: 14px; line-height: 1.5; margin: 0; }
 
         /* Footer */
-        footer { text-align: center; padding: 80px 20px; color: #aaa; font-size: 13px; line-height: 2; border-top: 1px solid #eee; background: white; }
+        footer { text-align: center; padding: 80px 20px; color: #aaa; font-size: 13px; line-height: 2; border-top: 1px solid #eee; background: white; margin-top: 50px; }
         footer a { color: #aaa; text-decoration: none; margin: 0 10px; }
+        footer a:hover { color: var(--accent); }
     </style>
 </head>
 <body>
 
 <div class="nav">
-    <a href="index.html" class="logo">
-        <img src="logo.svg" alt="🛡️"> 
-        STRIKE-SHIELD <span style="color:var(--accent)">PRO</span>
-    </a>
+    <a href="index.html" class="logo">🛡️ STRIKE-SHIELD PRO</a>
     <div class="badge">SYSTEMS ACTIVE</div>
 </div>
 
@@ -106,19 +58,20 @@
     <p>Professional protection and manual override protocols for creators.</p>
 </div>
 
+<!-- SECTION 1: THE BOOK (Clean, Dark, Separated) -->
 <div class="lead-magnet">
-    <h2 style="color: var(--cyan); margin:0;">🛡️ FREE COMMUNITY RESOURCE</h2>
+    <h2 style="color: var(--cyan); margin:0; text-transform: uppercase; letter-spacing: 2px;">Free Community Resource</h2>
     <p style="color: #bbb; margin: 10px 0;">Download "The 2026 Creator Defense" Manual (PDF)</p>
-    <!-- We use cover1.png if you haven't uploaded cover5.png yet -->
-    <img src="cover1.png" alt="Free eBook" class="ebook-img" id="bookImage">
+    <!-- NOTE: Using cover1.png because you said cover5 is missing -->
+    <img src="cover1.png" alt="Book Cover" class="ebook-img">
     <br>
-    <a href="creator-defense-2026.pdf" class="btn-free" download>Download Free Manual →</a>
+    <a href="creator-defense-2026.pdf" class="btn-free" download>Download PDF Manual →</a>
 </div>
 
 <div class="container">
     <div class="dashboard-grid">
         
-        <!-- Premium Tool -->
+        <!-- AI Consultant (Now properly placed in grid) -->
         <a href="ai-appeal-generator.html" class="card premium">
             <span class="card-badge">AI Powered</span>
             <h3>AI Appeal Consultant 🤖</h3>
@@ -131,7 +84,7 @@
             <p>Scan for Community Standards violations and Ad integrity flags.</p>
         </a>
 
-        <!-- Instagram (Now correctly lowercase to match your file) -->
+        <!-- Instagram -->
         <a href="instagram-compliance-checker.html" class="card">
             <h3>Instagram 📸</h3>
             <p>Avoid shadowbans and "Explore Page" restrictions before you post.</p>
@@ -144,53 +97,6 @@
         </a>
 
         <!-- YouTube -->
-        <a href="youtube-compliance-checker.html" class" class="ebook-img">
-    <br>
-    <a href="creator-defense-2026.pdf" class="btn-free" download>Download PDF Manual →</a>
-</div>
-
-<div class="container">
-    <div class="dashboard-grid">
-        <a href="ai-appeal-generator.html" class="card premium">
-            <span class="card-badge">AI Powered</span>
-            <h3>AI Appeal Consultant 🤖</h3>
-            <p>Draft technical rebuttals for bans and strikes using 2026 Policy Logic.</p>
-        </a>
-        <a href="facebook-compliance-checker.html" class="card">
-            <h3>Facebook 🛡️</h3>
-            <p>Scan for Community Standards violations and Ad integrity flags.</p>
-        </a>
-        <a href="instagram-compliance-checker.html" class="card">
-            <h3>Instagram 📸</h3>
-            <p>Avoid shadowbans and "Explore Page" restrictions before you post.</p>
-        </a>
-        <a href="tiktok-compliance-checker.html" class="card">
-            <h3>TikTok 🎵</h3>
-            <p>Strike-prevention for regulated goods and dangerous acts detection.</p>
-        </a>
         <a href="youtube-compliance-checker.html" class="card">
             <h3>YouTube 📺</h3>
-            <p>Monitor metadata for advertiser-friendly and copyright safety.</p>
-        </a>
-        <a href="faceless-youtube-monetization-2026.html" class="card">
-            <h3>Faceless YouTube 💰</h3>
-            <p>Protect AI-voiced channels from 'Reused Content' flags.</p>
-        </a>
-        <a href="shadowban-bible-2026.html" class="card">
-            <h3>Shadowban Bible 👻</h3>
-            <p>Detect and fix 2026 algorithmic suppression.</p>
-        </a>
-        <a href="health-finance-compliance-2026.html" class="card">
-            <h3>Health & Wealth 📈</h3>
-            <p>2026 compliance for supplements and financial claims.</p>
-        </a>
-    </div>
-</div>
-
-<footer>
-    &copy; 2026 Strike-Shield Pro Compliance Suite.<br>
-    <a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="privacy-policy.html">Privacy Policy</a>
-</footer>
-
-</body>
-</html>
+            <p>Monitor metadata for advertiser-fri
