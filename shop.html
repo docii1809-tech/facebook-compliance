@@ -1,46 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Store | Strike-Shield Pro 2026</title>
+    <title>Strike-Shield Pro | 2026 Digital Store</title>
     <style>
         :root { --primary: #000; --accent: #8a2be2; --bg: #f8f8f8; --cyan: #00ffff; }
         body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); margin: 0; padding: 0; color: #333; line-height: 1.6; }
         
         /* Navigation */
-        .store-nav { background: white; padding: 15px 5%; border-bottom: 1px solid #eee; display: flex; align-items: center; }
-        .store-nav a { text-decoration: none; color: var(--accent); font-weight: bold; font-size: 14px; }
+        .nav { background: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
+        .nav a { text-decoration: none; color: var(--accent); font-weight: bold; font-size: 14px; }
 
-        .container { max-width: 1200px; margin: auto; padding: 40px 20px; }
+        .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
         header { text-align: center; margin-bottom: 50px; }
-        header h1 { font-size: 48px; margin: 0; letter-spacing: -2px; color: var(--primary); }
-        header p { color: #666; font-size: 18px; }
-
+        header h1 { font-size: 42px; margin: 0; letter-spacing: -2px; color: var(--primary); }
+        
         /* Product Grid */
         .shop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        
         .product-card { background: white; border-radius: 24px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #eee; display: flex; flex-direction: column; transition: 0.3s; }
-        .product-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .product-card:hover { transform: translateY(-10px); border-color: var(--accent); }
         
-        /* Image/Mockup Styling */
-        .product-img { width: 100%; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); transition: 0.3s; }
-        .product-card:hover .product-img { transform: scale(1.02); }
-
-        .badge { background: #f0f7ff; color: #007bff; padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; align-self: start; margin-bottom: 10px; text-transform: uppercase; }
+        .product-img { width: 100%; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
         .price-tag { font-size: 32px; font-weight: 900; color: var(--primary); margin: 15px 0; }
         
-        .btn-buy { background: var(--primary); color: white; padding: 18px; border-radius: 40px; text-decoration: none; font-weight: bold; text-align: center; transition: 0.2s; font-size: 18px; }
-        .btn-buy:hover { background: var(--accent); box-shadow: 0 10px 20px rgba(138, 43, 226, 0.3); }
+        /* High-Conversion Button Style */
+        .btn-buy { background: var(--primary); color: white; padding: 16px; border-radius: 40px; text-decoration: none; font-weight: bold; text-align: center; transition: 0.3s; font-size: 16px; margin-top: auto; cursor: pointer; border: none; }
+        .btn-buy:hover { background: var(--accent); box-shadow: 0 10px 20px rgba(138, 43, 226, 0.3); color: white; }
 
-        footer { text-align: center; padding: 80px 20px; color: #aaa; font-size: 13px; line-height: 2; border-top: 1px solid #eee; margin-top: 50px; }
-        footer a { color: #aaa; text-decoration: none; margin: 0 10px; }
+        .badge { background: #f0f7ff; color: #007bff; padding: 5px 12px; border-radius: 20px; font-size: 10px; font-weight: bold; align-self: start; margin-bottom: 12px; text-transform: uppercase; }
+        
+        footer { text-align: center; padding: 80px 20px; color: #aaa; font-size: 13px; border-top: 1px solid #eee; background: white; }
     </style>
 </head>
 <body>
 
-<div class="store-nav">
+<div class="nav">
     <a href="index.html">← BACK TO 2026 DASHBOARD</a>
 </div>
 
@@ -51,59 +46,57 @@
     </header>
 
     <div class="shop-grid">
-        <!-- PRODUCT 1: RECOVERY KIT -->
+        <!-- 1. RECOVERY KIT -->
         <div class="product-card">
-            <img src="cover1.png" class="product-img" alt="Recovery Power-Kit Cover">
-            <span class="badge" style="background:#fef2f2; color:#dc3545;">Flagship Product</span>
+            <img src="cover1.png" class="product-img" alt="Recovery Power-Kit">
+            <span class="badge">BEST SELLER</span>
             <h3>Account Recovery Power-Kit</h3>
-            <p>Speak the algorithm's language. 2026 scripts to bypass the bot loop and force human reviews.</p>
+            <p>Bypass the 2026 bot loop on Meta & TikTok. Exact scripts for human review.</p>
             <div class="price-tag">$29.00</div>
-            <!-- PASTE STRIPE LINK 1 BELOW -->
-            <a href=""https://buy.stripe.com/fZueVcfAp83W1os4lP4c804 class="btn-buy">Get The Kit</a>
+            <!-- PASTE STRIPE LINK 1 HERE -->
+            <a href="PASTE_LINK_1" class="btn-buy">Buy The Kit →</a>
         </div>
 
-        <!-- PRODUCT 2: AI BIBLE -->
+        <!-- 2. AI BIBLE -->
         <div class="product-card">
-            <img src="cover2.png" class="product-img" alt="AI Bible Cover">
-            <span class="badge" style="background:#e0ffff; color:#008b8b;">Faceless Creators</span>
-            <h3>AI-Creator Compliance Bible</h3>
-            <p>Defeat Synthetic Media Classifiers. Learn the 2026 CHR Recovery & Human-Layering protocol.</p>
+            <img src="cover2.png" class="product-img" alt="AI Bible">
+            <span class="badge">CREATOR FOCUS</span>
+            <h3>AI Compliance Bible</h3>
+            <p>Stop 0-view shadowbans on faceless channels. Master 2026 CHR protocols.</p>
             <div class="price-tag">$29.00</div>
-            <!-- PASTE STRIPE LINK 2 BELOW -->
-            <a href="https://buy.stripe.com/9B6eVcdsh83W4AE8C54c803 class="btn-buy" style="background:#008b8b;">Access Manual</a>
+            <!-- PASTE STRIPE LINK 2 HERE -->
+            <a href="PASTE_LINK_2" class="btn-buy">Access Manual →</a>
         </div>
 
-        <!-- PRODUCT 3: DATING RESET -->
+        <!-- 3. DATING RESET -->
         <div class="product-card">
-            <img src="cover3.png" class="product-img" alt="Dating App Reset Cover">
-            <span class="badge">Privacy & ID</span>
+            <img src="cover3.png" class="product-img" alt="Dating Reset">
+            <span class="badge">PRIVACY</span>
             <h3>Dating App Reset Manual</h3>
-            <p>Bypass Device-ID fingerprints and facial biometric bans on Tinder, Bumble, & Hinge.</p>
+            <p>Bypass Device-ID fingerprints and facial biometric bans on Tinder/Bumble.</p>
             <div class="price-tag">$29.00</div>
-            <!-- PASTE STRIPE LINK 3 BELOW -->
-            <a href="https://buy.stripe.com/bJe9AS5ZP3NGc36aKd4c802 class="btn-buy" style="background:#333;">Download Now</a>
+            <!-- PASTE STRIPE LINK 3 HERE -->
+            <a href="PASTE_LINK_3" class="btn-buy">Download Now →</a>
         </div>
 
-        <!-- PRODUCT 4: COPYRIGHT -->
+        <!-- 4. COPYRIGHT -->
         <div class="product-card">
-            <img src="cover4.png" class="product-img" alt="Copyright Defense Cover">
-            <span class="badge" style="background:#fff1f0; color:#cc0000;">Legal Strategy</span>
+            <img src="cover4.png" class="product-img" alt="Copyright Defense">
+            <span class="badge">YT/REELS</span>
             <h3>Copyright Defense Suite</h3>
-            <p>Win disputes against Content ID 2.0. Exact Fair Use language for 2026 YouTube creators.</p>
+            <p>Win disputes against Content ID 2.0. Exact legal language for fair use.</p>
             <div class="price-tag">$29.00</div>
-            <!-- PASTE STRIPE LINK 4 BELOW -->
-            <a href=""https://buy.stripe.com/aFa5kC87Xesk3wA2dH4c801 class="btn-buy" style="background:#cc0000;">Secure Revenue</a>
+            <!-- PASTE STRIPE LINK 4 HERE -->
+            <a href="PASTE_LINK_4" class="btn-buy">Secure Adsense →</a>
         </div>
     </div>
 </div>
 
 <footer>
     &copy; 2026 Strike-Shield Pro Compliance Suite.<br>
-    <a href="about.html">About Us</a> | 
-    <a href="contact.html">Contact</a> | 
-    <a href="privacy-policy.html">Privacy Policy</a> | 
-    <a href="terms.html">Terms of Service</a> | 
-    <a href="disclaimer.html">Legal Disclaimer</a>
+    <a href="about.html" style="color:#aaa; text-decoration:none;">About</a> | 
+    <a href="contact.html" style="color:#aaa; text-decoration:none;">Contact</a> | 
+    <a href="privacy-policy.html" style="color:#aaa; text-decoration:none;">Privacy Policy</a>
 </footer>
 
 </body>
