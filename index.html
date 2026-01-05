@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- GOOGLE VERIFICATION TAGS -->
     <meta name="google-site-verification" content="MSHYprZVMBAyzRxQvfP5phYPrsZw9DiVMQsD41XAAcE" />
     <meta name="google-adsense-account" content="ca-pub-8079736596790678">
-    
     <title>Strike-Shield Pro | 2026 Social Compliance Suite</title>
     <style>
         :root { --primary: #000; --accent: #8a2be2; --bg: #f8f8f8; --success: #28a745; --cyan: #00ffff; }
         body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); margin: 0; padding: 0; color: #333; line-height: 1.6; }
         .nav { background: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
-        .logo { font-weight: 900; font-size: 20px; color: var(--primary); text-decoration: none; }
-        .badge { background: var(--success); color: white; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; }
+        .logo { font-weight: 900; font-size: 20px; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .badge { background: var(--success); color: white; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; text-transform: uppercase; }
         .hero { background: white; padding: 60px 5% 40px; text-align: center; border-bottom: 1px solid #eee; }
         .hero h1 { font-size: 42px; margin: 0; letter-spacing: -1.5px; line-height: 1.1; color: var(--primary); }
         .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
         .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-        .card { background: white; padding: 30px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #eee; transition: 0.3s; }
+        .card { background: white; padding: 30px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 1px solid #eee; transition: 0.3s; position: relative; }
         .card:hover { transform: translateY(-8px); border-color: var(--accent); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
         .card.premium { border: 2px solid var(--accent); background: rgba(138, 43, 226, 0.02); }
         .card-badge { background: var(--accent); color: white; font-size: 10px; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-bottom: 12px; font-weight: bold; text-transform: uppercase; width: fit-content; }
+        .card h3 { margin: 0 0 10px; font-size: 20px; }
+        .card p { color: #666; font-size: 14px; line-height: 1.5; margin: 0; }
         .premium-banner { background: var(--primary); color: white; padding: 50px 5%; border-radius: 24px; text-align: center; margin: 60px 0; border: 1px solid var(--accent); }
         .btn-premium { background: white; color: black; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; }
         footer { text-align: center; padding: 60px 20px; color: #aaa; font-size: 13px; border-top: 1px solid #eee; background: white; }
@@ -42,43 +42,75 @@
 
 <div class="container">
     <div class="dashboard-grid">
+        
+        <!-- 1. AI Consultant -->
         <a href="ai-appeal-generator.html" class="card premium">
             <span class="card-badge">AI Powered</span>
             <h3>AI Appeal Consultant 🤖</h3>
             <p>Draft technical rebuttals for bans and strikes using 2026 Policy Logic.</p>
         </a>
+
+        <!-- 2. Manual Escalation (NEW) -->
+        <a href="manual-escalation-guide-2026.html" class="card" style="border-top: 5px solid var(--accent);">
+            <h3>Manual Escalation 🔓</h3>
+            <p>Learn how to bypass the 2026 AI Bot Loop and force a human review.</p>
+        </a>
+
+        <!-- 3. AI Labeling (NEW) -->
+        <a href="ai-labeling-compliance-2026.html" class="card" style="border-top: 5px solid var(--cyan);">
+            <h3>AI Labeling Rules 🤖</h3>
+            <p>Stay compliant with 2026 synthetic media laws and avoid AI shadowbans.</p>
+        </a>
+
+        <!-- 4. Facebook Scanner -->
         <a href="facebook-compliance-checker.html" class="card">
             <h3>Facebook 🛡️</h3>
             <p>Scan for Community Standards violations and Ad integrity flags.</p>
         </a>
+
+        <!-- 5. Instagram Scanner -->
         <a href="instagram-compliance-checker.html" class="card">
             <h3>Instagram 📸</h3>
-            <p>Avoid shadowbans and "Explore Page" restrictions before you post.</p>
+            <p>Avoid shadowbans and Explore Page restrictions before you post.</p>
         </a>
+
+        <!-- 6. TikTok Scanner -->
         <a href="tiktok-compliance-checker.html" class="card">
             <h3>TikTok 🎵</h3>
             <p>Strike-prevention for regulated goods and dangerous acts detection.</p>
         </a>
+
+        <!-- 7. YouTube Scanner -->
         <a href="youtube-compliance-checker.html" class="card">
             <h3>YouTube 📺</h3>
             <p>Monitor metadata for advertiser-friendly and copyright safety.</p>
         </a>
-        <a href="shadowban-bible-2026.html" class="card">
+
+        <!-- 8. Shadowban Bible -->
+        <a href="shadowban-bible-2026.html" class="card" style="border-left: 5px solid var(--accent);">
             <h3>Shadowban Bible 👻</h3>
-            <p>Reach stuck at 0? Learn to fix 2026 algorithmic suppression.</p>
+            <p>Reach stuck at 200? Learn to fix 2026 algorithmic suppression.</p>
         </a>
-        <a href="health-finance-compliance-2026.html" class="card">
-            <h3>Health & Wealth 📈</h3>
-            <p>2026 compliance for supplements, coaching, and financial claims.</p>
-        </a>
+
+        <!-- 9. Meta Business Defense -->
         <a href="meta-business-defense-2026.html" class="card">
             <h3>Meta Business Defense 🏢</h3>
             <p>Stop 'Chain Disabling' in 2026. Protect your Ad Accounts.</p>
         </a>
+
+        <!-- 10. Creator Health (CHR) -->
         <a href="creator-health-rating-2026.html" class="card">
             <h3>Creator Health (CHR) 📊</h3>
-            <p>Deep-dive into the hidden 1,000-point score that controls your reach.</p>
+            <p>Deep-dive into the hidden 1,000-point score that controls reach.</p>
         </a>
+
+        <!-- 11. Health/Wealth -->
+        <a href="health-finance-compliance-2026.html" class="card">
+            <h3>Health & Wealth 📈</h3>
+            <p>2026 compliance for supplements and financial claims.</p>
+        </a>
+
+        <!-- 12. Dating App Bans -->
         <a href="dating-app-ban-recovery-2026.html" class="card">
             <h3>Dating App Bans 💘</h3>
             <p>Tinder, Bumble, and Hinge recovery guide for 2026.</p>
